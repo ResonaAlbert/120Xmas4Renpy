@@ -1,0 +1,777 @@
+2024-03-16 00:34:00 UTC
+Windows-10-10.0.22621
+Ren'Py 8.2.1.24030407
+
+Early init took 0.15s
+Loading error handling took 2.33s
+Loading script took 5.78s
+Loading save slot metadata took 1.90s
+Loading persistent took 0.00s
+Running init code took 0.18s
+Loading analysis data took 0.23s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Dump and make backups took 0.06s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b'Initialize() = -6.' (can be ignored)
+Creating interface object took 0.02s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.24s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Interface start took 0.30s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2240, 1400)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 31.0.101.4889'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2007, 1129) drawable=(2007, 1129)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 30.38s
+Loading error handling took 0.05s
+Loading script took 0.22s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.03s
+Index archives took 0.00s
+Dump and make backups took 0.06s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b'Initialize() = -6.' (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Interface start took 0.05s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2240, 1400)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 31.0.101.4889'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2005, 1128) drawable=(2005, 1128)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 197.16s
+Loading error handling took 0.04s
+Loading script took 0.29s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+
+File "game/screens.rpy", line 1679: style property g is not known.
+    g = Gallery()
+     ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b'Initialize() = -6.' (can be ignored)
+Interface start took 0.10s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2240, 1400)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 31.0.101.4889'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2004, 1127) drawable=(2004, 1127)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 232.21s
+Loading error handling took 0.04s
+Loading script took 0.37s
+Loading save slot metadata took 0.04s
+Loading persistent took 0.00s
+
+File "game/screens.rpy", line 1679: expected statement.
+    g = Gallery()
+      ^
+
+File "game/screens.rpy", line 1684: expected statement.
+    g.button("title")
+                     ^
+
+File "game/screens.rpy", line 1685: expected statement.
+    g.image("title")
+                    ^
+
+File "game/screens.rpy", line 1688: expected statement.
+    g.button("dawn")
+                    ^
+
+File "game/screens.rpy", line 1689: expected statement.
+    g.image("dawn1")
+                    ^
+
+File "game/screens.rpy", line 1690: expected statement.
+    g.unlock("dawn1")
+                     ^
+
+File "game/screens.rpy", line 1695: expected statement.
+    g.button("dark")
+                    ^
+
+File "game/screens.rpy", line 1696: expected statement.
+    g.unlock_image("bigbeach1")
+                               ^
+
+File "game/screens.rpy", line 1697: expected statement.
+    g.transform(slowpan)
+                        ^
+
+File "game/screens.rpy", line 1698: expected statement.
+    g.unlock_image("beach1 mary")
+                                 ^
+
+File "game/screens.rpy", line 1699: expected statement.
+    g.unlock_image("beach2")
+                            ^
+
+File "game/screens.rpy", line 1700: expected statement.
+    g.unlock_image("beach3")
+                            ^
+
+File "game/screens.rpy", line 1703: expected statement.
+    g.button("end1")
+                    ^
+
+File "game/screens.rpy", line 1704: expected statement.
+    g.condition("persistent.unlock_1")
+                                      ^
+
+File "game/screens.rpy", line 1705: expected statement.
+    g.image("transfer")
+                       ^
+
+File "game/screens.rpy", line 1706: expected statement.
+    g.image("moonpic")
+                      ^
+
+File "game/screens.rpy", line 1707: expected statement.
+    g.image("girlpic")
+                      ^
+
+File "game/screens.rpy", line 1708: expected statement.
+    g.image("nogirlpic")
+                        ^
+
+File "game/screens.rpy", line 1709: expected statement.
+    g.image("bad_ending")
+                         ^
+
+File "game/screens.rpy", line 1711: expected statement.
+    g.button("end2")
+                    ^
+
+File "game/screens.rpy", line 1712: expected statement.
+    g.condition("persistent.unlock_2")
+                                      ^
+
+File "game/screens.rpy", line 1713: expected statement.
+    g.image("library")
+                      ^
+
+File "game/screens.rpy", line 1714: expected statement.
+    g.image("beach1 nomoon")
+                            ^
+
+File "game/screens.rpy", line 1715: expected statement.
+    g.image("bad_ending")
+                         ^
+
+File "game/screens.rpy", line 1718: expected statement.
+    g.button("end3")
+                    ^
+
+File "game/screens.rpy", line 1719: expected statement.
+    g.condition("persistent.unlock_3")
+                                      ^
+
+File "game/screens.rpy", line 1720: expected statement.
+    g.image("littlemary2")
+                          ^
+
+File "game/screens.rpy", line 1721: expected statement.
+    g.image("littlemary")
+                         ^
+
+File "game/screens.rpy", line 1722: expected statement.
+    g.image("good_ending")
+                          ^
+
+File "game/screens.rpy", line 1723: expected statement.
+    g.condition("persistent.unlock_3 and persistent.unlock_4")
+                                                              ^
+
+File "game/screens.rpy", line 1725: expected statement.
+    g.button("end4")
+                    ^
+
+File "game/screens.rpy", line 1726: expected statement.
+    g.condition("persistent.unlock_4")
+                                      ^
+
+File "game/screens.rpy", line 1727: expected statement.
+    g.image("hospital1")
+                        ^
+
+File "game/screens.rpy", line 1728: expected statement.
+    g.image("hospital2")
+                        ^
+
+File "game/screens.rpy", line 1729: expected statement.
+    g.image("hospital3")
+                        ^
+
+File "game/screens.rpy", line 1730: expected statement.
+    g.image("heaven")
+                     ^
+
+File "game/screens.rpy", line 1731: expected statement.
+    g.image("white")
+                    ^
+
+File "game/screens.rpy", line 1732: expected statement.
+    g.image("good_ending")
+                          ^
+
+File "game/screens.rpy", line 1733: expected statement.
+    g.condition("persistent.unlock_3 and persistent.unlock_4")
+                                                              ^
+
+File "game/screens.rpy", line 1737: expected statement.
+    g.button("dawn mary")
+                         ^
+
+File "game/screens.rpy", line 1738: expected statement.
+    g.unlock_image("dawn1", "mary dawn wistful")
+                                                ^
+
+File "game/screens.rpy", line 1739: expected statement.
+    g.unlock_image("dawn1", "mary dawn smiling")
+                                                ^
+
+File "game/screens.rpy", line 1740: expected statement.
+    g.unlock_image("dawn1", "mary dawn vhappy")
+                                               ^
+
+File "game/screens.rpy", line 1742: expected statement.
+    g.button("dark mary")
+                         ^
+
+File "game/screens.rpy", line 1743: expected statement.
+    g.unlock_image("beach2", "mary dark wistful")
+                                                 ^
+
+File "game/screens.rpy", line 1744: expected statement.
+    g.unlock_image("beach2", "mary dark smiling")
+                                                 ^
+
+File "game/screens.rpy", line 1745: expected statement.
+    g.unlock_image("beach2", "mary dark vhappy")
+                                                ^
+
+File "game/screens.rpy", line 1748: expected statement.
+    g.transition = dissolve
+                 ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b'Initialize() = -6.' (can be ignored)
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2240, 1400)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 31.0.101.4889'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2004, 1127) drawable=(2004, 1127)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 314.15s
+Loading error handling took 0.03s
+Loading script took 0.45s
+Loading save slot metadata took 0.08s
+Loading persistent took 0.00s
+
+File "game/screens.rpy", line 1679: expected statement.
+    g = Gallery()
+      ^
+
+File "game/screens.rpy", line 1684: expected statement.
+    g.button("title")
+                     ^
+
+File "game/screens.rpy", line 1685: expected statement.
+    g.image("title")
+                    ^
+
+File "game/screens.rpy", line 1688: expected statement.
+    g.button("dawn")
+                    ^
+
+File "game/screens.rpy", line 1689: expected statement.
+    g.image("dawn1")
+                    ^
+
+File "game/screens.rpy", line 1690: expected statement.
+    g.unlock("dawn1")
+                     ^
+
+File "game/screens.rpy", line 1695: expected statement.
+    g.button("dark")
+                    ^
+
+File "game/screens.rpy", line 1696: expected statement.
+    g.unlock_image("bigbeach1")
+                               ^
+
+File "game/screens.rpy", line 1697: expected statement.
+    g.transform(slowpan)
+                        ^
+
+File "game/screens.rpy", line 1698: expected statement.
+    g.unlock_image("beach1 mary")
+                                 ^
+
+File "game/screens.rpy", line 1699: expected statement.
+    g.unlock_image("beach2")
+                            ^
+
+File "game/screens.rpy", line 1700: expected statement.
+    g.unlock_image("beach3")
+                            ^
+
+File "game/screens.rpy", line 1703: expected statement.
+    g.button("end1")
+                    ^
+
+File "game/screens.rpy", line 1704: expected statement.
+    g.condition("persistent.unlock_1")
+                                      ^
+
+File "game/screens.rpy", line 1705: expected statement.
+    g.image("transfer")
+                       ^
+
+File "game/screens.rpy", line 1706: expected statement.
+    g.image("moonpic")
+                      ^
+
+File "game/screens.rpy", line 1707: expected statement.
+    g.image("girlpic")
+                      ^
+
+File "game/screens.rpy", line 1708: expected statement.
+    g.image("nogirlpic")
+                        ^
+
+File "game/screens.rpy", line 1709: expected statement.
+    g.image("bad_ending")
+                         ^
+
+File "game/screens.rpy", line 1711: expected statement.
+    g.button("end2")
+                    ^
+
+File "game/screens.rpy", line 1712: expected statement.
+    g.condition("persistent.unlock_2")
+                                      ^
+
+File "game/screens.rpy", line 1713: expected statement.
+    g.image("library")
+                      ^
+
+File "game/screens.rpy", line 1714: expected statement.
+    g.image("beach1 nomoon")
+                            ^
+
+File "game/screens.rpy", line 1715: expected statement.
+    g.image("bad_ending")
+                         ^
+
+File "game/screens.rpy", line 1718: expected statement.
+    g.button("end3")
+                    ^
+
+File "game/screens.rpy", line 1719: expected statement.
+    g.condition("persistent.unlock_3")
+                                      ^
+
+File "game/screens.rpy", line 1720: expected statement.
+    g.image("littlemary2")
+                          ^
+
+File "game/screens.rpy", line 1721: expected statement.
+    g.image("littlemary")
+                         ^
+
+File "game/screens.rpy", line 1722: expected statement.
+    g.image("good_ending")
+                          ^
+
+File "game/screens.rpy", line 1723: expected statement.
+    g.condition("persistent.unlock_3 and persistent.unlock_4")
+                                                              ^
+
+File "game/screens.rpy", line 1725: expected statement.
+    g.button("end4")
+                    ^
+
+File "game/screens.rpy", line 1726: expected statement.
+    g.condition("persistent.unlock_4")
+                                      ^
+
+File "game/screens.rpy", line 1727: expected statement.
+    g.image("hospital1")
+                        ^
+
+File "game/screens.rpy", line 1728: expected statement.
+    g.image("hospital2")
+                        ^
+
+File "game/screens.rpy", line 1729: expected statement.
+    g.image("hospital3")
+                        ^
+
+File "game/screens.rpy", line 1730: expected statement.
+    g.image("heaven")
+                     ^
+
+File "game/screens.rpy", line 1731: expected statement.
+    g.image("white")
+                    ^
+
+File "game/screens.rpy", line 1732: expected statement.
+    g.image("good_ending")
+                          ^
+
+File "game/screens.rpy", line 1733: expected statement.
+    g.condition("persistent.unlock_3 and persistent.unlock_4")
+                                                              ^
+
+File "game/screens.rpy", line 1737: expected statement.
+    g.button("dawn mary")
+                         ^
+
+File "game/screens.rpy", line 1738: expected statement.
+    g.unlock_image("dawn1", "mary dawn wistful")
+                                                ^
+
+File "game/screens.rpy", line 1739: expected statement.
+    g.unlock_image("dawn1", "mary dawn smiling")
+                                                ^
+
+File "game/screens.rpy", line 1740: expected statement.
+    g.unlock_image("dawn1", "mary dawn vhappy")
+                                               ^
+
+File "game/screens.rpy", line 1742: expected statement.
+    g.button("dark mary")
+                         ^
+
+File "game/screens.rpy", line 1743: expected statement.
+    g.unlock_image("beach2", "mary dark wistful")
+                                                 ^
+
+File "game/screens.rpy", line 1744: expected statement.
+    g.unlock_image("beach2", "mary dark smiling")
+                                                 ^
+
+File "game/screens.rpy", line 1745: expected statement.
+    g.unlock_image("beach2", "mary dark vhappy")
+                                                ^
+
+File "game/screens.rpy", line 1748: expected statement.
+    g.transition = dissolve
+                 ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b'Initialize() = -6.' (can be ignored)
+Interface start took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2240, 1400)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 31.0.101.4889'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2004, 1127) drawable=(2004, 1127)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 321.92s
+Loading error handling took 0.04s
+Loading script took 0.50s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+
+Full traceback:
+  File "game/gui.rpy", line 394, in script
+    init python:
+  File "D:\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 823, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/gui.rpy", line 415, in <module>
+    g.transform(slowpan)
+NameError: name 'slowpan' is not defined
+
+While running game code:
+  File "game/gui.rpy", line 394, in script
+    init python:
+  File "game/gui.rpy", line 415, in <module>
+    g.transform(slowpan)
+NameError: name 'slowpan' is not defined
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b'Initialize() = -6.' (can be ignored)
+Interface start took 0.13s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2240, 1400)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 31.0.101.4889'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2004, 1127) drawable=(2004, 1127)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 387.31s
+Loading error handling took 0.03s
+Loading script took 0.36s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+
+Full traceback:
+  File "game/gui.rpy", line 394, in script
+    init python:
+  File "D:\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 823, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/gui.rpy", line 415, in <module>
+    g.transform(slowpan)
+NameError: name 'slowpan' is not defined
+
+While running game code:
+  File "game/gui.rpy", line 394, in script
+    init python:
+  File "game/gui.rpy", line 415, in <module>
+    g.transform(slowpan)
+NameError: name 'slowpan' is not defined
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b'Initialize() = -6.' (can be ignored)
+Interface start took 0.15s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2240, 1400)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 31.0.101.4889'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2004, 1127) drawable=(2004, 1127)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 419.31s
+Loading error handling took 0.03s
+Loading script took 0.35s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+
+Full traceback:
+  File "game/gui.rpy", line 394, in script
+    init python:
+  File "D:\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 823, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/gui.rpy", line 415, in <module>
+    g.transform(slowpan)
+NameError: name 'slowpan' is not defined
+
+While running game code:
+  File "game/gui.rpy", line 394, in script
+    init python:
+  File "game/gui.rpy", line 415, in <module>
+    g.transform(slowpan)
+NameError: name 'slowpan' is not defined
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b'Initialize() = -6.' (can be ignored)
+Interface start took 0.13s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2240, 1400)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 31.0.101.4889'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2004, 1127) drawable=(2004, 1127)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 490.79s
+Loading error handling took 0.03s
+Loading script took 0.33s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+
+Full traceback:
+  File "game/gui.rpy", line 394, in script
+    init python:
+  File "D:\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 823, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/gui.rpy", line 415, in <module>
+    g.transform(slowpan)
+NameError: name 'slowpan' is not defined
+
+While running game code:
+  File "game/gui.rpy", line 394, in script
+    init python:
+  File "game/gui.rpy", line 415, in <module>
+    g.transform(slowpan)
+NameError: name 'slowpan' is not defined
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b'Initialize() = -6.' (can be ignored)
+Interface start took 0.14s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2240, 1400)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 31.0.101.4889'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2004, 1127) drawable=(2004, 1127)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 587.96s
+Loading error handling took 0.04s
+Loading script took 0.45s
+Loading save slot metadata took 0.04s
+Loading persistent took 0.00s
+
+Full traceback:
+  File "game/gui.rpy", line 394, in script
+    init python:
+  File "D:\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 823, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/gui.rpy", line 415, in <module>
+    g.transform(slowpan)
+NameError: name 'slowpan' is not defined
+
+While running game code:
+  File "game/gui.rpy", line 394, in script
+    init python:
+  File "game/gui.rpy", line 415, in <module>
+    g.transform(slowpan)
+NameError: name 'slowpan' is not defined
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b'Initialize() = -6.' (can be ignored)
+Interface start took 0.18s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2240, 1400)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 31.0.101.4889'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2004, 1127) drawable=(2004, 1127)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 665.54s
+Loading error handling took 0.04s
+Loading script took 0.37s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+Running init code took 0.04s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.03s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Alber\\AppData\\Roaming/RenPy/backups\\120Xmas':
+Dump and make backups took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.06s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: b'Initialize() = -6.' (can be ignored)
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.02s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.06s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2240, 1400)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) Iris(R) Xe Graphics'
+Version: b'4.6.0 - Build 31.0.101.4889'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(2004, 1127) drawable=(2004, 1127)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(2560, 1494) drawable=(2560, 1494)
+Maximum texture size: 4096x4096
+Screen sizes: virtual=(1920, 1080) physical=(2004, 1127) drawable=(2004, 1127)
+Maximum texture size: 4096x4096
