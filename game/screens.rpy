@@ -316,9 +316,9 @@ screen navigation():
                 at main_menu_show_btn(0.2)
                 action ShowMenu("load")
             
-            textbutton _("Gallery") :
+            textbutton _("EXTRA") :
                 at main_menu_show_btn(0.2)
-                action ShowMenu("gallery")
+                action ShowMenu("EXTRA")
 
             textbutton _("CONFIG") :
                 at main_menu_show_btn(0.4)
@@ -438,6 +438,8 @@ screen main_menu():
 
     add gui.main_menu_background
     add GAMELOGO at GAMELOGO_POSITION
+
+#    play sound "audio/title.wav"
 
     ## 此空框可使标题菜单变暗。
     frame:
@@ -1203,6 +1205,87 @@ style help_label_text:
     xalign 1.0
     textalign 1.0
 
+init python:
+
+    #  步骤1，创建一个MusicRoom实例。
+    mr = MusicRoom(fadeout=1.0)
+
+    # Step 2. 添加音乐文件。
+    mr.add("audio/title.mp3")
+    mr.add("audio/BGM/Theme2.mp3", always_unlocked=True)
+    mr.add("audio/BGM/Cafe.mp3")
+    mr.add("audio/BGM/Love.mp3")
+
+screen EXTRA():
+
+    tag menu
+
+    add gui.main_menu_background
+
+    hbox:
+        
+        style_prefix "hnavigation"
+
+        #xpos gui.navigation_xpos
+        #yalign 0.5
+        xalign 0.5
+        yalign 1.0
+        yoffset 100
+
+        spacing gui.navigation_spacing
+
+        textbutton _("Gallery") :
+            at main_menu_show_btn()
+            action ShowMenu("gallery")
+        
+        textbutton _("Music"):
+            at main_menu_show_btn(0.2)
+            action ShowMenu("music_room")
+
+        textbutton _("Back"):
+            at main_menu_show_btn(0.4)
+            action ShowMenu("main_menu")
+
+
+
+# Step 3. 创建音乐空间界面。
+screen music_room:
+
+    tag menu
+
+    add gui.main_menu_background
+
+    frame:
+
+        xalign 0.5
+        yalign 0.5
+
+        has vbox
+
+        # 每条音轨的播放按钮。
+        textbutton "Theme2" action mr.Play("audio/BGM/Theme2.mp3")
+        textbutton "Cafe" action mr.Play("audio/BGM/Cafe.mp3")
+        textbutton "Love" action mr.Play("audio/BGM/Love.mp3")
+
+        null height 20
+
+        # 切换音轨按钮。
+        textbutton "Next" action mr.Next()
+        textbutton "Previous" action mr.Previous()
+
+        null height 20
+
+        # 用户退出音乐空间的按钮。
+        textbutton "Back" action ShowMenu("EXTRA")
+        textbutton "Main Menu" action ShowMenu("main_menu")
+
+        bar value Preference("music volume")
+
+    # 音乐空间的音乐播放入口。
+    on "replace" action mr.Play()
+
+    # 离开时恢复主菜单的音乐。
+    on "replaced" action Play("music", "audio/BGM/Theme2.mp3")
 
 
 ################################################################################
@@ -1567,38 +1650,6 @@ define bubble.expand_area = {
     "top_right" : (0, 22, 0, 0),
     "thought" : (0, 0, 0, 0),
 }
-
-# Step 3. 我们使用的画廊界面。
-screen gallery:
-
-    # 确保画廊界面替换主菜单。
-    tag menu
-
-    # 背景图。
-    add "gui/game_menu.png"
-
-    # 按钮网格(grid)。
-    grid 3 3:
-
-        xfill True
-        yfill True
-
-        # 调用make_button显示具体的按钮。
-        add g.make_button("dark", "gui/main_menu.png", xalign=0.5, yalign=0.5)
-    #    add g.make_button("dawn", "gal-dawn.png", xalign=0.5, yalign=0.5)
-    #    add g.make_button("end1", "gal-end1.png", xalign=0.5, yalign=0.5)
-
-    #    add g.make_button("end2", "gal-end2.png", xalign=0.5, yalign=0.5)
-    #    add g.make_button("end3", "gal-end3.png", xalign=0.5, yalign=0.5)
-    #    add g.make_button("end4", "gal-end4.png", xalign=0.5, yalign=0.5)
-
-    #    add g.make_button("dark mary", "gal-dark_mary.png", xalign=0.5, yalign=0.5)
-    #    add g.make_button("dawn mary", "gal-dawn_mary.png", xalign=0.5, yalign=0.5)
-    #    add g.make_button("title", "title.png", xalign=0.5, yalign=0.5)
-
-        # 用于响应后返回主菜单的界面。
-        # 也能用于导航到其他画廊界面。
-        textbutton "Return" action Return() xalign 0.5 yalign 0.5
 
 ################################################################################
 ## 移动设备界面
