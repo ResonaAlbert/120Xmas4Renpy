@@ -1234,7 +1234,7 @@ screen EXTRA():
 
         spacing gui.navigation_spacing
 
-        textbutton _("Gallery") :
+        textbutton _("Gallery"):
             at main_menu_show_btn()
             action ShowMenu("gallery")
         

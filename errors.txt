@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1334: Indentation mismatch.
+File "game/screens.rpy", line 432: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    play sound "audio/title.wav"
+               ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sat Mar 16 23:02:16 2024
+Sun Mar 17 00:29:52 2024
