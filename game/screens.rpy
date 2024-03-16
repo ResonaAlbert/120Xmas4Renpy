@@ -320,6 +320,10 @@ screen navigation():
                 at main_menu_show_btn(0.2)
                 action ShowMenu("gallery")
 
+            textbutton _("Music"):
+                at main_menu_show_btn(0.2)
+                action ShowMenu("music_room")
+
             textbutton _("CONFIG") :
                 at main_menu_show_btn(0.4)
                 action ShowMenu("preferences")
@@ -428,6 +432,37 @@ transform GAMELOGO_POSITION:
         alpha 0.0
         easein 2 alpha 1.0
 
+init python:
+
+    class TrackCursor(renpy.Displayable):
+
+        def __init__(self, child, paramod, **kwargs):
+
+            super(TrackCursor, self).__init__()
+
+            self.child = renpy.displayable(child)
+
+            self.x = None
+            self.y = None
+            self.paramod = paramod
+
+        def render(self, width, height, st, at):
+
+            rv = renpy.Render(width, height)
+
+            if self.x is not None:
+                cr = renpy.render(self.child, width, height, st, at)
+                cw, ch = cr.get_size()
+                rv.blit(cr, (self.x, self.y))
+
+            return rv
+
+        def event(self, ev, x, y, st):
+
+            if (x != self.x) or (y != self.y):
+                self.x = -x /self.paramod
+                self.y = -y /self.paramod
+                renpy.redraw(self, 0)
 
 define GAMELOGO = "gui/Game_LOGO.png"
 
@@ -438,6 +473,9 @@ screen main_menu():
 
     add gui.main_menu_background
     add GAMELOGO at GAMELOGO_POSITION
+
+    #   add TrackCursor("gui/main_menu.png", 40)
+    #   add TrackCursor("gui/main_menu_A.png", 20)
 
     ## 此空框可使标题菜单变暗。
     frame:
@@ -1599,6 +1637,54 @@ screen gallery:
         # 用于响应后返回主菜单的界面。
         # 也能用于导航到其他画廊界面。
         textbutton "Return" action Return() xalign 0.5 yalign 0.5
+
+init python:
+
+    #  步骤1，创建一个MusicRoom实例。
+    mr = MusicRoom(fadeout=1.0)
+
+    # Step 2. 添加音乐文件。
+    mr.add("audio/BGM/Theme2.mp3", always_unlocked=True)
+    mr.add("audio/BGM/Cafe.mp3", always_unlocked=True)
+    mr.add("audio/BGM/Love.mp3")
+
+
+# Step 3. 创建音乐空间界面。
+screen music_room:
+
+    tag menu
+
+    add gui.game_menu_background
+
+    frame:
+        background None
+        xalign 0.5
+        yalign 0.5
+        has vbox
+        
+        bar value Preference("sound volume")
+
+        # 每条音轨的播放按钮。
+        textbutton "Track 1" action mr.Play("audio/BGM/Theme2.mp3")
+        textbutton "Track 2" action mr.Play("audio/BGM/Cafe.mp3")
+        textbutton "Track 3" action mr.Play("audio/BGM/Love.mp3")
+
+        null height 20
+
+        # 切换音轨按钮。
+        textbutton "Next" action mr.Next()
+        textbutton "Previous" action mr.Previous()
+
+        null height 20
+
+        # 用户退出音乐空间的按钮。
+        textbutton _("TITLE") action ShowMenu("main_menu")
+
+    # 音乐空间的音乐播放入口。
+    on "replace" action mr.Play()
+
+    # 离开时恢复主菜单的音乐。
+    on "replaced" action Play("music", "audio/BGM/Theme2.mp3")
 
 ################################################################################
 ## 移动设备界面

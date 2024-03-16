@@ -10,13 +10,13 @@ label splashscreen:
     scene black
     with Pause(1)
 
-    # play sound "ping.ogg"
+    play sound "audio/ggc2.wav"
 
     show splash with dissolve
     with Pause(2)
 
     scene black with dissolve
-    with Pause(1)
+    with Pause(0.5)
 
     return
 

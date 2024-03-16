@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 320: Line is indented, but the preceding textbutton statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    at main_menu_show_btn(0.2)
-    ^
+File "game/screens.rpy", line 1660: the background keyword argument was not given a value.
+    background = None
+               ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sat Mar 16 02:44:43 2024
+Sat Mar 16 10:22:40 2024
