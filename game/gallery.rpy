@@ -69,9 +69,9 @@ screen gallery():
     ### Layout ###
     tag menu
     style_prefix "game_menu"
-    add im.Blur(gui.main_menu_background, 1.5)
-    add "gui/overlay/main_menu.png"
-    add "gallery_background_overlay"
+#    add im.Blur(gui.main_menu_background, 1.5)
+#    add "gui/overlay/main_menu.png"
+#    add "gallery_background_overlay"
 
     hbox:
         vbox:

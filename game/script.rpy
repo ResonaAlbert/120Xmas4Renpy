@@ -22,10 +22,6 @@ label splashscreen:
 
 # 游戏在此开始。
 
-init python:
-    # Import the renpy module to access Ren'Py functions
-    import renpy.audio as ra
-
 label start:
 
     # 显示一个背景。此处默认显示占位图，但您也可以在图片目录添加一个文件
