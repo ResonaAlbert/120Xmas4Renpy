@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 432: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    play sound "audio/title.wav"
-               ^
+File "game/screens.rpy", line 1343: 'init' is not a keyword argument or valid child of the screen statement.
+    init python:
+        ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sun Mar 17 00:29:52 2024
+Mon Mar 18 23:54:18 2024

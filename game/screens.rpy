@@ -296,62 +296,76 @@ screen navigation():
 
             spacing gui.navigation_spacing
 
+            $ wait_btn_t0 = 0 
+            $ wait_btn_t = 0.1
+
             if main_menu:
                 # imagebutton auto "gui/Start_%s.png" action Start()# 开始游戏
                 textbutton _("START"):
-                    at main_menu_show_btn()
+                    at main_menu_show_btn(wait_btn_t0)
                     action Start()
-
+                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
             else:
 
                 textbutton _("HISTORY"): 
-                    at main_menu_show_btn()
+                    at main_menu_show_btn(wait_btn_t0)
                     action ShowMenu("history")
+                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
                 textbutton _("SAVE"):
-                    at main_menu_show_btn()
+                    at main_menu_show_btn(wait_btn_t0)
                     action ShowMenu("save")
+                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             textbutton _("LOAD") :
-                at main_menu_show_btn(0.2)
+                at main_menu_show_btn(wait_btn_t0)
                 action ShowMenu("load")
+            $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
             
             textbutton _("EXTRA") :
-                at main_menu_show_btn(0.2)
+                at main_menu_show_btn(wait_btn_t0)
                 action ShowMenu("EXTRA")
+            $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             textbutton _("CONFIG") :
-                at main_menu_show_btn(0.4)
+                at main_menu_show_btn(wait_btn_t0)
                 action ShowMenu("preferences")
+            $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             if _in_replay:
-
-                textbutton _("END PLAY") action EndReplay(confirm=True)
+                textbutton _("END PLAY"):
+                    at main_menu_show_btn(wait_btn_t0)
+                    action EndReplay(confirm=True)
+                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             elif not main_menu:
-
                 textbutton _("TITLE") action MainMenu()
 
             textbutton _("ABOUT") :
-                at main_menu_show_btn(0.6)
+                at main_menu_show_btn(wait_btn_t0)
                 action ShowMenu("about")
+            $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
                 ## “帮助”对移动设备来说并非必需或相关。
                 textbutton _("HELP") :
-                    at main_menu_show_btn(0.8)
+                    at main_menu_show_btn(wait_btn_t0)
                     action ShowMenu("help")
+                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             if renpy.variant("pc"):
                 
                 ## 退出按钮在 iOS 上是被禁止使用的，在安卓和网页上也不是必要的。
                 textbutton _("END") :
-                    at main_menu_show_btn(0.8)
+                    at main_menu_show_btn(wait_btn_t0)
                     action Quit(confirm=not main_menu)
+                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
     else:
+        # add gui.game_menu_background
+
         vbox:
-            # style_prefix "navigation"
+            style_prefix "navigation"
 
             xpos gui.navigation_xpos
             yalign 0.5
@@ -418,8 +432,13 @@ style hnavigation_button_text:
 ##
 ## https://www.renpy.cn/doc/screen_special.html#main-menu
 
+init -1 python: 
+    def title_sound(trans, st, at):
+        renpy.play("audio/title.wav", "sound")
+
 transform GAMELOGO_POSITION:
     xalign 0.5
+    zoom 0.6
     #   align (0.5, 0.8) alpha 0.0
     parallel:
         yalign 0.95
@@ -427,9 +446,45 @@ transform GAMELOGO_POSITION:
     parallel:
         alpha 0.0
         easein 2 alpha 1.0
+    parallel:
+        pause(2.0)
+        function title_sound
 
 
 define GAMELOGO = "gui/Game_LOGO.png"
+
+
+init python:
+
+    class TrackCursor(renpy.Displayable):
+
+        def __init__(self, child, paramod, **kwargs):
+
+            super(TrackCursor, self).__init__()
+
+            self.child = renpy.displayable(child)
+
+            self.x = None
+            self.y = None
+            self.paramod = paramod
+
+        def render(self, width, height, st, at):
+
+            rv = renpy.Render(width, height)
+
+            if self.x is not None:
+                cr = renpy.render(self.child, width, height, st, at)
+                cw, ch = cr.get_size()
+                rv.blit(cr, (self.x, self.y))
+
+            return rv
+
+        def event(self, ev, x, y, st):
+
+            if (x != self.x) or (y != self.y):
+                self.x = -x /self.paramod
+                self.y = -y /self.paramod
+                renpy.redraw(self, 0)
 
 screen main_menu():
 
@@ -439,7 +494,7 @@ screen main_menu():
     add gui.main_menu_background
     add GAMELOGO at GAMELOGO_POSITION
 
-#    play sound "audio/title.wav"
+#    add TrackCursor("gui/main_menu_A.png",20)
 
     ## 此空框可使标题菜单变暗。
     frame:
@@ -683,8 +738,9 @@ screen file_slots(title):
 
     default page_name_value = FilePageNameInputValue(pattern=_("第 {} 页"), auto=_("自动存档"), quick=_("快速存档"))
 
-    use game_menu(title):
 
+    use game_menu(title):
+        
         fixed:
 
             ## 此代码确保输入控件在任意按钮执行前可以获取 enter 事件。
@@ -1240,7 +1296,7 @@ screen EXTRA():
         
         textbutton _("Music"):
             at main_menu_show_btn(0.2)
-            action ShowMenu("music_room")
+            action ShowMenu("music_room", mr=my_room)
 
         textbutton _("Back"):
             at main_menu_show_btn(0.4)
@@ -1249,7 +1305,7 @@ screen EXTRA():
 
 
 # Step 3. 创建音乐空间界面。
-screen music_room:
+screen music_room1:
 
     tag menu
 
@@ -1287,6 +1343,85 @@ screen music_room:
     # 离开时恢复主菜单的音乐。
     on "replaced" action Play("music", "audio/BGM/Theme2.mp3")
 
+init python:
+    my_room = ExtendedMusicRoom(channel='music', fadeout=2.0, fadein=1.0,
+        loop=True, single_track=False, shuffle=True, stop_action=None,
+        alphabetical=True)
+
+    my_room.default_art = "gui/music_room/MyGameOST.png"
+
+    my_room.add(
+        name=_("Theme"),
+        path="audio/BGM/Theme2.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Theme2"),
+        path="audio/BGM/Theme1.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Bar Jazz"),
+        path="audio/BGM/Bar Jazz.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Bar Piano"),
+        path="audio/BGM/Bar Piano.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Cafe"),
+        path="audio/BGM/Cafe.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Love"),
+        path="audio/BGM/Love.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Sad"),
+        path="audio/BGM/Sad.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Vita Guitar"),
+        path="audio/BGM/Vita Guitar.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Vita String"),
+        path="audio/BGM/Vita String.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
 
 ################################################################################
 ## 其他屏幕
