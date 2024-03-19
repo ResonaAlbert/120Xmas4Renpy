@@ -25,10 +25,10 @@ define config.check_conflicting_properties = True
 ## 界面中文本的颜色。
 
 ## 整个界面中使用的强调色，用于标记和突出显示文本。
-define gui.accent_color = '#FFEB85'
+define gui.accent_color = '#29506fbe'
 
 ## 当文本按钮既未被选中也未被悬停时使用的颜色。
-define gui.idle_color = '#FFEB85'
+define gui.idle_color = '#29506fbe'
 
 ## 小的颜色用于小的文本，需要更亮/更暗才能达到同样的效果。
 define gui.idle_small_color = '#aaaaaa'
@@ -50,7 +50,7 @@ define gui.hover_muted_color = '#005b7a'
 
 ## 对话和菜单选择文本使用的颜色。
 define gui.text_color = '#ffffff'
-define gui.interface_text_color = '#FFEB85'
+define gui.interface_text_color = '#29506fbe'
 
 
 ## 字体和字体大小 #####################################################################

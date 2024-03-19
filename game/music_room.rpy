@@ -213,9 +213,9 @@ screen select_music_room_layout(mr, **properties):
         properties properties
         has hbox
         xalign 0.5 spacing 20
-        textbutton "Layout 1" action ShowMenu("music_room", mr=mr)
-        textbutton "Layout 2" action ShowMenu("music_room2", mr=mr)
-        textbutton "Layout 3" action ShowMenu("music_room3", mr=mr)
+    #    textbutton "Layout 1" action ShowMenu("music_room", mr=mr)
+    #    textbutton "Layout 2" action ShowMenu("music_room2", mr=mr)
+    #    textbutton "Layout 3" action ShowMenu("music_room3", mr=mr)
 style mr_layout_frame:
     background "#e0f8ff" xpadding 15 ypadding 10
 style mr_layout_button:
@@ -417,6 +417,8 @@ style music_room_duration:
 ################################################################################
 style track_list_frame:
     background "#e0f8ff"
+    # "gui/frame.png"
+    ## "#e0f8ff"
     yalign 0.0 xalign 0.0
     padding (25, 25)
 style track_list_viewport:
@@ -654,7 +656,7 @@ screen music_room3(mr):
     ## Otherwise, if you're using my Easy Ren'Py GUI (https://feniksdev.itch.io/easy-renpy-gui)
     ## you can use this:
     ##
-    use game_menu(_("Music Room"))
+    use game_menu(_("Music"))
     fixed:
         yfill True
         xsize config.screen_width-420
@@ -668,7 +670,7 @@ screen music_room3(mr):
             viewport:
                 mousewheel True scrollbars "vertical" draggable True
                 has vbox
-                label _("Track List") style "music_room_title"
+                # label _("Track List") style "music_room_title"
                 ## get_tracklist takes one argument, all_tracks. If all_tracks is
                 ## True, it shows all tracks, including locked ones (which will be
                 ## shown grayed out). If all_tracks is False, it only shows unlocked
@@ -770,7 +772,7 @@ screen music_room3(mr):
 
     ## Buttons to go to the different layouts. Remove once you've decided
     ## on which layout to use.
-    use select_music_room_layout(mr, align=(1.0, 0.0))
+    # use select_music_room_layout(mr, align=(1.0, 0.0))
 
 style musicroom3_frame:
     yalign 1.0 xalign 0.5 xfill True ysize 200
