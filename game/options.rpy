@@ -51,7 +51,7 @@ define config.has_voice = True
 ## 样本声音。
 
 define config.sample_sound = "audio/ggc.wav"
-define config.sample_voice = "audio/ggc2.wav"
+define config.sample_voice = "audio/ggc.wav"
 
 
 ## 将以下语句取消注释就可以设置标题界面播放的背景音乐文件。此文件将在整个游戏中

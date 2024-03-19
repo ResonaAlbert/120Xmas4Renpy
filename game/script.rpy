@@ -10,13 +10,13 @@ label splashscreen:
     scene black
     with Pause(1)
 
-    play sound "audio/ggc2.wav"
+    play sound "audio/ggc.wav"
 
     show splash with dissolve
     with Pause(2)
 
     scene black with dissolve
-    with Pause(0.5)
+    with Pause(1)
 
     return
 
@@ -41,5 +41,18 @@ label start:
     e "当您完善了故事、图片和音乐之后，您就可以向全世界发布了！"
 
     # 此处为游戏结尾。
+
+    show cg trees with dissolve
+
+    "cg #1"
+
+    show cg gres with dissolve
+
+    "cg #2"
+
+    show cg gres side with dissolve
+
+    "cg #2 variant"
+
 
     return

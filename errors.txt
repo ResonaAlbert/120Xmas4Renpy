@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 1660: the background keyword argument was not given a value.
-    background = None
-               ^
+File "game/screens.rpy", line 1343: 'init' is not a keyword argument or valid child of the screen statement.
+    init python:
+        ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sat Mar 16 10:22:40 2024
+Mon Mar 18 23:54:18 2024

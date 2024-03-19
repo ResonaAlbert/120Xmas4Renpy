@@ -296,66 +296,76 @@ screen navigation():
 
             spacing gui.navigation_spacing
 
+            $ wait_btn_t0 = 0 
+            $ wait_btn_t = 0.1
+
             if main_menu:
                 # imagebutton auto "gui/Start_%s.png" action Start()# 开始游戏
                 textbutton _("START"):
-                    at main_menu_show_btn()
+                    at main_menu_show_btn(wait_btn_t0)
                     action Start()
-
+                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
             else:
 
                 textbutton _("HISTORY"): 
-                    at main_menu_show_btn()
+                    at main_menu_show_btn(wait_btn_t0)
                     action ShowMenu("history")
+                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
                 textbutton _("SAVE"):
-                    at main_menu_show_btn()
+                    at main_menu_show_btn(wait_btn_t0)
                     action ShowMenu("save")
+                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             textbutton _("LOAD") :
-                at main_menu_show_btn(0.2)
+                at main_menu_show_btn(wait_btn_t0)
                 action ShowMenu("load")
+            $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
             
-            textbutton _("Gallery") :
-                at main_menu_show_btn(0.2)
-                action ShowMenu("gallery")
-
-            textbutton _("Music"):
-                at main_menu_show_btn(0.2)
-                action ShowMenu("music_room")
+            textbutton _("EXTRA") :
+                at main_menu_show_btn(wait_btn_t0)
+                action ShowMenu("EXTRA")
+            $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             textbutton _("CONFIG") :
-                at main_menu_show_btn(0.4)
+                at main_menu_show_btn(wait_btn_t0)
                 action ShowMenu("preferences")
+            $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             if _in_replay:
-
-                textbutton _("END PLAY") action EndReplay(confirm=True)
+                textbutton _("END PLAY"):
+                    at main_menu_show_btn(wait_btn_t0)
+                    action EndReplay(confirm=True)
+                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             elif not main_menu:
-
                 textbutton _("TITLE") action MainMenu()
 
             textbutton _("ABOUT") :
-                at main_menu_show_btn(0.6)
+                at main_menu_show_btn(wait_btn_t0)
                 action ShowMenu("about")
+            $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
                 ## “帮助”对移动设备来说并非必需或相关。
                 textbutton _("HELP") :
-                    at main_menu_show_btn(0.8)
+                    at main_menu_show_btn(wait_btn_t0)
                     action ShowMenu("help")
+                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             if renpy.variant("pc"):
                 
                 ## 退出按钮在 iOS 上是被禁止使用的，在安卓和网页上也不是必要的。
                 textbutton _("END") :
-                    at main_menu_show_btn(0.8)
+                    at main_menu_show_btn(wait_btn_t0)
                     action Quit(confirm=not main_menu)
+                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
     else:
+        # add gui.game_menu_background
+
         vbox:
-            # style_prefix "navigation"
+            style_prefix "navigation"
 
             xpos gui.navigation_xpos
             yalign 0.5
@@ -422,8 +432,13 @@ style hnavigation_button_text:
 ##
 ## https://www.renpy.cn/doc/screen_special.html#main-menu
 
+init -1 python: 
+    def title_sound(trans, st, at):
+        renpy.play("audio/title.wav", "sound")
+
 transform GAMELOGO_POSITION:
     xalign 0.5
+    zoom 0.6
     #   align (0.5, 0.8) alpha 0.0
     parallel:
         yalign 0.95
@@ -431,6 +446,13 @@ transform GAMELOGO_POSITION:
     parallel:
         alpha 0.0
         easein 2 alpha 1.0
+    parallel:
+        pause(2.0)
+        function title_sound
+
+
+define GAMELOGO = "gui/Game_LOGO.png"
+
 
 init python:
 
@@ -464,8 +486,6 @@ init python:
                 self.y = -y /self.paramod
                 renpy.redraw(self, 0)
 
-define GAMELOGO = "gui/Game_LOGO.png"
-
 screen main_menu():
 
     ## 此语句可确保替换掉任何其他菜单屏幕。
@@ -474,8 +494,7 @@ screen main_menu():
     add gui.main_menu_background
     add GAMELOGO at GAMELOGO_POSITION
 
-    #   add TrackCursor("gui/main_menu.png", 40)
-    #   add TrackCursor("gui/main_menu_A.png", 20)
+#    add TrackCursor("gui/main_menu_A.png",20)
 
     ## 此空框可使标题菜单变暗。
     frame:
@@ -719,8 +738,9 @@ screen file_slots(title):
 
     default page_name_value = FilePageNameInputValue(pattern=_("第 {} 页"), auto=_("自动存档"), quick=_("快速存档"))
 
-    use game_menu(title):
 
+    use game_menu(title):
+        
         fixed:
 
             ## 此代码确保输入控件在任意按钮执行前可以获取 enter 事件。
@@ -1241,7 +1261,167 @@ style help_label_text:
     xalign 1.0
     textalign 1.0
 
+init python:
 
+    #  步骤1，创建一个MusicRoom实例。
+    mr = MusicRoom(fadeout=1.0)
+
+    # Step 2. 添加音乐文件。
+    mr.add("audio/title.mp3")
+    mr.add("audio/BGM/Theme2.mp3", always_unlocked=True)
+    mr.add("audio/BGM/Cafe.mp3")
+    mr.add("audio/BGM/Love.mp3")
+
+screen EXTRA():
+
+    tag menu
+
+    add gui.main_menu_background
+
+    hbox:
+        
+        style_prefix "hnavigation"
+
+        #xpos gui.navigation_xpos
+        #yalign 0.5
+        xalign 0.5
+        yalign 1.0
+        yoffset 100
+
+        spacing gui.navigation_spacing
+
+        textbutton _("Gallery"):
+            at main_menu_show_btn()
+            action ShowMenu("gallery")
+        
+        textbutton _("Music"):
+            at main_menu_show_btn(0.2)
+            action ShowMenu("music_room", mr=my_room)
+
+        textbutton _("Back"):
+            at main_menu_show_btn(0.4)
+            action ShowMenu("main_menu")
+
+
+
+# Step 3. 创建音乐空间界面。
+screen music_room1:
+
+    tag menu
+
+    add gui.main_menu_background
+
+    frame:
+
+        xalign 0.5
+        yalign 0.5
+
+        has vbox
+
+        # 每条音轨的播放按钮。
+        textbutton "Theme2" action mr.Play("audio/BGM/Theme2.mp3")
+        textbutton "Cafe" action mr.Play("audio/BGM/Cafe.mp3")
+        textbutton "Love" action mr.Play("audio/BGM/Love.mp3")
+
+        null height 20
+
+        # 切换音轨按钮。
+        textbutton "Next" action mr.Next()
+        textbutton "Previous" action mr.Previous()
+
+        null height 20
+
+        # 用户退出音乐空间的按钮。
+        textbutton "Back" action ShowMenu("EXTRA")
+        textbutton "Main Menu" action ShowMenu("main_menu")
+
+        bar value Preference("music volume")
+
+    # 音乐空间的音乐播放入口。
+    on "replace" action mr.Play()
+
+    # 离开时恢复主菜单的音乐。
+    on "replaced" action Play("music", "audio/BGM/Theme2.mp3")
+
+init python:
+    my_room = ExtendedMusicRoom(channel='music', fadeout=2.0, fadein=1.0,
+        loop=True, single_track=False, shuffle=True, stop_action=None,
+        alphabetical=True)
+
+    my_room.default_art = "gui/music_room/MyGameOST.png"
+
+    my_room.add(
+        name=_("Theme"),
+        path="audio/BGM/Theme2.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Theme2"),
+        path="audio/BGM/Theme1.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Bar Jazz"),
+        path="audio/BGM/Bar Jazz.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Bar Piano"),
+        path="audio/BGM/Bar Piano.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Cafe"),
+        path="audio/BGM/Cafe.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Love"),
+        path="audio/BGM/Love.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Sad"),
+        path="audio/BGM/Sad.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Vita Guitar"),
+        path="audio/BGM/Vita Guitar.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
+    my_room.add(
+        name=_("Vita String"),
+        path="audio/BGM/Vita String.mp3",
+        artist="Guke",
+    #    art="gui/music_room/nutcracker_ost.png",
+    #    description=_("From {i}The Nutcracker{/i}"),
+        unlock_condition="True",
+    )
 
 ################################################################################
 ## 其他屏幕
@@ -1605,86 +1785,6 @@ define bubble.expand_area = {
     "top_right" : (0, 22, 0, 0),
     "thought" : (0, 0, 0, 0),
 }
-
-# Step 3. 我们使用的画廊界面。
-screen gallery:
-
-    # 确保画廊界面替换主菜单。
-    tag menu
-
-    # 背景图。
-    add "gui/game_menu.png"
-
-    # 按钮网格(grid)。
-    grid 3 3:
-
-        xfill True
-        yfill True
-
-        # 调用make_button显示具体的按钮。
-        add g.make_button("dark", "gui/main_menu.png", xalign=0.5, yalign=0.5)
-    #    add g.make_button("dawn", "gal-dawn.png", xalign=0.5, yalign=0.5)
-    #    add g.make_button("end1", "gal-end1.png", xalign=0.5, yalign=0.5)
-
-    #    add g.make_button("end2", "gal-end2.png", xalign=0.5, yalign=0.5)
-    #    add g.make_button("end3", "gal-end3.png", xalign=0.5, yalign=0.5)
-    #    add g.make_button("end4", "gal-end4.png", xalign=0.5, yalign=0.5)
-
-    #    add g.make_button("dark mary", "gal-dark_mary.png", xalign=0.5, yalign=0.5)
-    #    add g.make_button("dawn mary", "gal-dawn_mary.png", xalign=0.5, yalign=0.5)
-    #    add g.make_button("title", "title.png", xalign=0.5, yalign=0.5)
-
-        # 用于响应后返回主菜单的界面。
-        # 也能用于导航到其他画廊界面。
-        textbutton "Return" action Return() xalign 0.5 yalign 0.5
-
-init python:
-
-    #  步骤1，创建一个MusicRoom实例。
-    mr = MusicRoom(fadeout=1.0)
-
-    # Step 2. 添加音乐文件。
-    mr.add("audio/BGM/Theme2.mp3", always_unlocked=True)
-    mr.add("audio/BGM/Cafe.mp3", always_unlocked=True)
-    mr.add("audio/BGM/Love.mp3")
-
-
-# Step 3. 创建音乐空间界面。
-screen music_room:
-
-    tag menu
-
-    add gui.game_menu_background
-
-    frame:
-        background None
-        xalign 0.5
-        yalign 0.5
-        has vbox
-        
-        bar value Preference("sound volume")
-
-        # 每条音轨的播放按钮。
-        textbutton "Track 1" action mr.Play("audio/BGM/Theme2.mp3")
-        textbutton "Track 2" action mr.Play("audio/BGM/Cafe.mp3")
-        textbutton "Track 3" action mr.Play("audio/BGM/Love.mp3")
-
-        null height 20
-
-        # 切换音轨按钮。
-        textbutton "Next" action mr.Next()
-        textbutton "Previous" action mr.Previous()
-
-        null height 20
-
-        # 用户退出音乐空间的按钮。
-        textbutton _("TITLE") action ShowMenu("main_menu")
-
-    # 音乐空间的音乐播放入口。
-    on "replace" action mr.Play()
-
-    # 离开时恢复主菜单的音乐。
-    on "replaced" action Play("music", "audio/BGM/Theme2.mp3")
 
 ################################################################################
 ## 移动设备界面

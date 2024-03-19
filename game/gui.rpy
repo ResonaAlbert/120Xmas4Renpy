@@ -393,12 +393,6 @@ define gui.language = "unicode"
 
 init python:
 
-    # 步骤1，创建Gallery对象。
-    g = Gallery()
-
-    # 用于图像切换使用的转场(transition)。
-    g.transition = dissolve
-
     ## 该变量增加快捷菜单按钮的尺寸来使它们在平板和手机上更容易被按到。
     @gui.variant
     def touch():
