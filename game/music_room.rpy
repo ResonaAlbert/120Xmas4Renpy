@@ -128,10 +128,10 @@ define myconfig.UNLOCK_TRACKS_FOR_DEVELOPMENT = True
 ## to colorize the default music controls. You can change these if you want to
 ## use the provided images, or simply supply your own and remove the lines
 ## `at colorize_button` from the screen below.
-define MUSIC_ROOM_IDLE_COLOR = "#ffffff"
-define MUSIC_ROOM_HOVER_COLOR = "#fff261"
-define MUSIC_ROOM_SELECTED_IDLE_COLOR = "#ffffff"
-define MUSIC_ROOM_SELECTED_HOVER_COLOR = "#fff261"
+define MUSIC_ROOM_IDLE_COLOR = "#112d6a"
+define MUSIC_ROOM_HOVER_COLOR = "#bed4ee"
+define MUSIC_ROOM_SELECTED_IDLE_COLOR = "#112d6a"
+define MUSIC_ROOM_SELECTED_HOVER_COLOR = "#bed4ee"
 define MUSIC_ROOM_INSENSITIVE_COLOR = "#888"
 
 ## Here are the default buttons used for the music controls below. You can
@@ -293,7 +293,7 @@ screen music_room(mr):
                         spacing 4
                         ## Track info
                         label song.name
-                        text song.artist
+                        # text song.artist
 
     ## This holds the album art, song title, artist, music bar, and music
     ## controls. You may adjust this however you wish! The important part
@@ -416,9 +416,9 @@ style music_room_duration:
 ## Styles for the track list, shared generally by the other rooms.
 ################################################################################
 style track_list_frame:
-    background "#e0f8ff"
-    # "gui/frame.png"
-    ## "#e0f8ff"
+    #background "#e0f8ff"
+    #  background  "gui/music_room/music_room_fram1.png"
+    background Frame([ "gui/music_room/music_room_fram1.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
     yalign 0.0 xalign 0.0
     padding (25, 25)
 style track_list_viewport:
@@ -429,23 +429,24 @@ style track_list_vbox:
     spacing 0
 style track_list_button:
     right_padding 45
-    background Transform("#ff8335", ysize=2, yalign=1.0)
-    hover_foreground "#fff1"
-    ypadding 15 xfill True
+    background Transform("#112d6a", ysize=2, yalign=1.0)
+    hover_foreground "#d4e2ff65"
+    ypadding 15 xpadding 15
+    xfill True
 style track_list_hbox:
     xalign 0.0 spacing 18
 style track_list_fixed:
     xsize 45 ysize 45 yalign 0.5
 style track_list_text:
-    color "#bfbfb9"
+    color "#112d6a"
     insensitive_color "#666"
 style track_list_label:
     background None padding (2, 0)
 style track_list_label_text:
-    color "#f7f7ed" hover_color "#f93c3e" selected_color "#ff8335"
+    color "#112d6a" hover_color "#9eddf8" selected_color "#5d7fc8"
     insensitive_color "#666"
 style track_list_vscrollbar:
-    thumb "#fc5f39" base_bar "#292835"
+    thumb "#112d6a" base_bar "#5d7fc8"
 
 ################################################################################
 ## SCREENS - VERSION 2
@@ -646,7 +647,8 @@ screen music_room3(mr):
 
     style_prefix "music_room3"
 
-    add HBox(Transform("#292835", xsize=350), "#21212db2") # Background
+    #   add HBox(Transform("#292835", xsize=350), "#21212db2") # Background
+    add gui.game_menu_background
 
     ############################################################################
     ## If you have a standard Ren'Py UI sidebar, you can use this:
@@ -712,7 +714,7 @@ screen music_room3(mr):
                 xsize 250
                 if current_track:
                     text current_track.name
-                    text current_track.artist color "#bfbfb9"
+                    text current_track.artist color "#112d6a"
                 else:
                     text _("No song playing")
 
@@ -763,11 +765,11 @@ screen music_room3(mr):
                         add mr.get_duration(style="music_room_duration")
 
             add "gui/music_room/volume.webp" zoom 0.45 yalign 0.5:
-                matrixcolor ColorizeMatrix(MUSIC_ROOM_HOVER_COLOR, "#fff")
+                matrixcolor ColorizeMatrix(MUSIC_ROOM_HOVER_COLOR, "#112d6a")
 
             bar value MixerValue(mr.channel) xysize (150, 25):
-                xalign 0.5 right_bar "#21212d" thumb None yalign 0.5
-                left_bar "#fc5f39"
+                xalign 0.5 right_bar "#bed4ee" thumb None yalign 0.5
+                left_bar "#112d6a"
 
 
     ## Buttons to go to the different layouts. Remove once you've decided
@@ -776,13 +778,15 @@ screen music_room3(mr):
 
 style musicroom3_frame:
     yalign 1.0 xalign 0.5 xfill True ysize 200
-    background Frame(
-        Fixed(
-            Transform("#f93c3e", xysize=(100, 100)),
-            Transform("#292835", xysize=(90, 90), align=(0.5, 0.5)),
-            xysize=(100, 100)
-        ), 10, 10
-    )
+    #   background  "gui/music_room/music_room_fram2.png"
+    background Frame([  "gui/music_room/music_room_fram2.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
+#    background Frame(
+#        Fixed(
+#            Transform("#f93c3e", xysize=(100, 100)),
+#            Transform("#292835", xysize=(90, 90), align=(0.5, 0.5)),
+#            xysize=(100, 100)
+#        ), 10, 10
+#    )
 
 style musicroom3_hbox:
     spacing 20
@@ -791,9 +795,9 @@ style musicroom3_image_button:
 style musicroom3_bar:
     ysize 25 xsize 480
     yalign 0.5
-    right_bar "#21212d" thumb None
-    left_bar "#fc5f39"
+    right_bar "#bed4ee" thumb None
+    left_bar "#112d6a"
 style musicroom3_text:
-    yalign 0.5 size 25 color "#f7f7ed"
+    yalign 0.5 size 35 color "#112d6a"
 style musicroom3_vbox:
     yalign 0.5

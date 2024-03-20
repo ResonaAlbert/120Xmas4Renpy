@@ -612,7 +612,7 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     use navigation
 
-    textbutton _("返回"):
+    textbutton _("Back"):
         style "return_button"
 
         action Return()
@@ -736,7 +736,7 @@ screen load():
 
 screen file_slots(title):
 
-    default page_name_value = FilePageNameInputValue(pattern=_("第 {} 页"), auto=_("自动存档"), quick=_("快速存档"))
+    default page_name_value = FilePageNameInputValue(pattern=_("第 {} 页"), auto=_("Quick Save"), quick=_("Quick Load"))
 
 
     use game_menu(title):
@@ -778,7 +778,7 @@ screen file_slots(title):
 
                         add FileScreenshot(slot) xalign 0.5
 
-                        text FileTime(slot, format=_("{#file_time}%Y-%m-%d %H:%M"), empty=_("空存档位")):
+                        text FileTime(slot, format=_("{#file_time}%Y-%m-%d %H:%M"), empty=_("Empty")):
                             style "slot_time_text"
 
                         text FileSaveName(slot):
@@ -865,7 +865,7 @@ screen preferences():
 
     tag menu
 
-    use game_menu(_("设置"), scroll="viewport"):
+    use game_menu(_("Setting"), scroll="viewport"):
 
         vbox:
 
@@ -876,13 +876,13 @@ screen preferences():
 
                     vbox:
                         style_prefix "radio"
-                        label _("显示")
-                        textbutton _("窗口") action Preference("display", "window")
-                        textbutton _("全屏") action Preference("display", "fullscreen")
+                        label _("Disp;ay")
+                        textbutton _("Windows") action Preference("display", "window")
+                        textbutton _("Full") action Preference("display", "fullscreen")
 
                 vbox:
                     style_prefix "check"
-                    label _("快进")
+                    label _("Skip")
                     textbutton _("未读文本") action Preference("skip", "toggle")
                     textbutton _("选项后继续") action Preference("after choices", "toggle")
                     textbutton _("忽略转场") action InvertSelected(Preference("transitions", "toggle"))
@@ -1460,8 +1460,8 @@ screen confirm(message, yes_action, no_action):
                 xalign 0.5
                 spacing 150
 
-                textbutton _("确定") action yes_action
-                textbutton _("取消") action no_action
+                textbutton _("YES") action yes_action
+                textbutton _("NO") action no_action
 
     ## 右键点击退出并答复 no（取消）。
     key "game_menu" action no_action

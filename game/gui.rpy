@@ -31,10 +31,10 @@ define gui.accent_color = '#29506fbe'
 define gui.idle_color = '#29506fbe'
 
 ## 小的颜色用于小的文本，需要更亮/更暗才能达到同样的效果。
-define gui.idle_small_color = '#aaaaaa'
+define gui.idle_small_color = '#112d6a'
 
 ## 当按钮和滑条被悬停时使用的颜色。
-define gui.hover_color = '#FFFFCE'
+define gui.hover_color = '#bed4ee'
 
 ## 当文本按钮被选中但非焦点时使用的颜色。当一个按钮为当前屏幕或设置选项值时，会
 ## 处于选中状态。
@@ -68,10 +68,10 @@ define gui.interface_text_font = "gui/FeiHuaSongTi.ttf"
 define gui.text_size = 33
 
 ## 角色名称的大小。
-define gui.name_text_size = 45
+define gui.name_text_size = 36
 
 ## 游戏用户界面中文本的大小。
-define gui.interface_text_size = 50
+define gui.interface_text_size = 36
 
 ## 游戏用户界面中标签的大小。
 define gui.label_text_size = 36
@@ -177,7 +177,7 @@ define gui.confirm_button_text_xalign = 0.5
 define gui.page_button_borders = Borders(15, 6, 15, 6)
 
 define gui.quick_button_borders = Borders(15, 6, 15, 0)
-define gui.quick_button_text_size = 21
+define gui.quick_button_text_size = 30
 define gui.quick_button_text_idle_color = gui.idle_small_color
 define gui.quick_button_text_selected_color = gui.accent_color
 
