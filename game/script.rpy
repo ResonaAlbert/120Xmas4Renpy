@@ -5,6 +5,7 @@
 define e = Character("艾琳")
 
 image splash = "gui/GGCLOGO.png"
+image attention = "gui/attention.png"
 
 label splashscreen:
     scene black
@@ -14,6 +15,12 @@ label splashscreen:
 
     show splash with dissolve
     with Pause(2)
+
+    scene black with dissolve
+    with Pause(1)
+
+    show attention with dissolve
+    with Pause(1.5)
 
     scene black with dissolve
     with Pause(1)
