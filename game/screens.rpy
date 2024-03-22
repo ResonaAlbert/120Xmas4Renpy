@@ -304,32 +304,38 @@ screen navigation():
                 textbutton _("START"):
                     at main_menu_show_btn(wait_btn_t0)
                     action Start()
+                    activate_sound "audio/no.mp3" 
                 $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
             else:
 
                 textbutton _("HISTORY"): 
                     at main_menu_show_btn(wait_btn_t0)
                     action ShowMenu("history")
+                    activate_sound "audio/no.mp3" 
                 $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
                 textbutton _("SAVE"):
                     at main_menu_show_btn(wait_btn_t0)
                     action ShowMenu("save")
+                    activate_sound "audio/no.mp3" 
                 $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             textbutton _("LOAD") :
                 at main_menu_show_btn(wait_btn_t0)
                 action ShowMenu("load")
+                activate_sound "audio/no.mp3" 
             $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
             
             textbutton _("EXTRA") :
                 at main_menu_show_btn(wait_btn_t0)
                 action ShowMenu("EXTRA")
+                activate_sound "audio/no.mp3" 
             $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             textbutton _("CONFIG") :
                 at main_menu_show_btn(wait_btn_t0)
                 action ShowMenu("preferences")
+                activate_sound "audio/no.mp3" 
             $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
             if _in_replay:

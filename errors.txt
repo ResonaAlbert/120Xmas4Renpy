@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/music_room.rpy", line 661: 'background' is not a keyword argument or valid child of the screen statement.
-    background Frame([ "gui/backbar.png"])
-              ^
+File "game/screens.rpy", line 306: the action keyword argument was not given a value.
+    action:
+          ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Fri Mar 22 02:12:56 2024
+Fri Mar 22 10:37:00 2024
