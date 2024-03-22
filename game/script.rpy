@@ -19,8 +19,10 @@ label splashscreen:
     scene black with dissolve
     with Pause(1)
 
+    play sound "audio/attention.wav"
     show attention with dissolve
     with Pause(1.5)
+    
 
     scene black with dissolve
     with Pause(1)
