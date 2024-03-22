@@ -876,7 +876,7 @@ screen preferences():
 
                     vbox:
                         style_prefix "radio"
-                        label _("Disp;ay")
+                        label _("Display")
                         textbutton _("Windows") action Preference("display", "window")
                         textbutton _("Full") action Preference("display", "fullscreen")
 

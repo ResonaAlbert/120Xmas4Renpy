@@ -1,0 +1,161 @@
+2024-03-22 01:31:02 UTC
+macOS-10.16-x86_64-i386-64bit
+Ren'Py 8.2.1.24030407
+
+Early init took 0.08s
+Loading error handling took 0.05s
+Loading script took 0.59s
+Loading save slot metadata took 0.05s
+Loading persistent took 0.00s
+Running init code took 0.07s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.03s
+Index archives took 0.00s
+Backing up script files to '/Users/resona/Library/RenPy/backups/120Xmas4Renpy':
+Dump and make backups took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.05s
+Build styles took 0.00s
+Load screen analysis took 0.05s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.13s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.05s
+Running _start took 0.00s
+Interface start took 0.34s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel Inc.'"
+Renderer: b'Intel(R) Iris(TM) Graphics 550'
+Version: b'2.1 INTEL-18.8.16'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1047, 589) drawable=(2094, 1178)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 68.04s
+Loading error handling took 0.06s
+Loading script took 0.40s
+Loading save slot metadata took 0.05s
+Loading persistent took 0.00s
+Running init code took 0.07s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.04s
+Index archives took 0.00s
+Dump and make backups took 0.10s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.07s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.05s
+Build styles took 0.01s
+Load screen analysis took 0.06s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.13s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Interface start took 0.35s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel Inc.'"
+Renderer: b'Intel(R) Iris(TM) Graphics 550'
+Version: b'2.1 INTEL-18.8.16'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1047, 589) drawable=(2094, 1178)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 149.53s
+Loading error handling took 0.05s
+Loading script took 0.28s
+Loading save slot metadata took 0.05s
+Loading persistent took 0.00s
+Running init code took 0.05s
+Loading analysis data took 0.03s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.04s
+Index archives took 0.00s
+Dump and make backups took 0.09s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.07s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.01s
+Load screen analysis took 0.06s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.12s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Interface start took 0.38s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel Inc.'"
+Renderer: b'Intel(R) Iris(TM) Graphics 550'
+Version: b'2.1 INTEL-18.8.16'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1047, 589) drawable=(2094, 1178)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 194.96s
+Loading error handling took 0.06s
+Loading script took 0.60s
+Loading save slot metadata took 0.06s
+Loading persistent took 0.00s
+Running init code took 0.16s
+Loading analysis data took 0.05s
+Analyze and compile ATL took 0.01s
+Reloading save slot metadata took 0.05s
+Index archives took 0.00s
+Backing up script files to '/Users/resona/Library/RenPy/backups/120Xmas4Renpy':
+Dump and make backups took 0.12s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.14s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.08s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.03s
+Save screen analysis took 0.04s
+Prepare screens took 0.42s
+Save pyanalysis. took 0.05s
+Save bytecode. took 0.05s
+Running _start took 0.01s
+Interface start took 0.53s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel Inc.'"
+Renderer: b'Intel(R) Iris(TM) Graphics 550'
+Version: b'2.1 INTEL-18.8.16'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1047, 589) drawable=(2094, 1178)
+Maximum texture size: 4096x4096

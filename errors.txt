@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/music_room.rpy", line 661: 'background' is not a keyword argument or valid child of the screen statement.
+    background Frame([ "gui/backbar.png"])
+              ^
+
+Ren'Py Version: Ren'Py 8.2.1.24030407
+Fri Mar 22 02:12:56 2024
