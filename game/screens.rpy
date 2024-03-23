@@ -491,6 +491,7 @@ screen main_menu():
             textbutton _("END") :
                 at main_menu_show_btn(wait_btn_t0)
                 action Quit(confirm=not main_menu)
+                activate_sound "audio/click2.mp3" 
             $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
     if gui.show_name:
@@ -604,8 +605,8 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     textbutton _("Back"):
         style "return_button"
-
         action Return()
+        activate_sound "audio/click2.mp3" 
 
     label title
 
@@ -743,6 +744,7 @@ screen file_slots(title):
                 key_events True
                 xalign 0.5
                 action page_name_value.Toggle()
+                activate_sound "audio/click2.mp3" 
 
                 input:
                     style "page_label_text"
@@ -764,6 +766,7 @@ screen file_slots(title):
 
                     button:
                         action FileAction(slot)
+                        activate_sound "audio/click2.mp3" 
 
                         has vbox
                         xalign 0.5
@@ -794,14 +797,20 @@ screen file_slots(title):
                     textbutton _("<") action FilePagePrevious()
 
                     if config.has_autosave:
-                        textbutton _("{#auto_page}A") action FilePage("auto")
+                        textbutton _("{#auto_page}A"):
+                            action FilePage("auto")
+                            activate_sound "audio/click2.mp3" 
 
                     if config.has_quicksave:
-                        textbutton _("{#quick_page}Q") action FilePage("quick")
+                        textbutton _("{#quick_page}Q"):
+                            action FilePage("quick")
+                            activate_sound "audio/click2.mp3" 
 
                     ## range(1, 10) 给出 1 到 9 之间的数字。
                     for page in range(1, 10):
-                        textbutton "[page]" action FilePage(page)
+                        textbutton ("[page]"):
+                            action FilePage(page)
+                            activate_sound "audio/click2.mp3" 
 
                     textbutton _(">") action FilePageNext()
 
@@ -809,10 +818,12 @@ screen file_slots(title):
                     if CurrentScreenName() == "save":
                         textbutton _("上传同步"):
                             action UploadSync()
+                            activate_sound "audio/click2.mp3" 
                             xalign 0.5
                     else:
                         textbutton _("下载同步"):
                             action DownloadSync()
+                            activate_sound "audio/click2.mp3" 
                             xalign 0.5
 
 
@@ -870,15 +881,25 @@ screen preferences():
                     vbox:
                         style_prefix "radio"
                         label _("Display")
-                        textbutton _("Windows") action Preference("display", "window")
-                        textbutton _("Full") action Preference("display", "fullscreen")
+                        textbutton _("Windows"): 
+                            action Preference("display", "window")
+                            activate_sound "audio/click2.mp3" 
+                        textbutton _("Full"):
+                            action Preference("display", "fullscreen")
+                            activate_sound "audio/click2.mp3" 
 
                 vbox:
                     style_prefix "check"
                     label _("Skip")
-                    textbutton _("未读文本") action Preference("skip", "toggle")
-                    textbutton _("选项后继续") action Preference("after choices", "toggle")
-                    textbutton _("忽略转场") action InvertSelected(Preference("transitions", "toggle"))
+                    textbutton _("未读文本"):
+                        action Preference("skip", "toggle")
+                        activate_sound "audio/click2.mp3" 
+                    textbutton _("选项后继续"):
+                        action Preference("after choices", "toggle")
+                        activate_sound "audio/click2.mp3" 
+                    textbutton _("忽略转场"):
+                        action InvertSelected(Preference("transitions", "toggle"))
+                        activate_sound "audio/click2.mp3" 
 
                 ## 可在此处添加 radio_pref 或 check_pref 类型的额外 vbox，以添加
                 ## 额外的创建者定义的偏好设置。
@@ -1286,55 +1307,55 @@ screen EXTRA():
         textbutton _("Gallery"):
             at main_menu_show_btn()
             action ShowMenu("gallery")
+            activate_sound "audio/click2.mp3" 
         
         textbutton _("Music"):
             at main_menu_show_btn(0.2)
             action ShowMenu("music_room3", mr=my_room)
+            activate_sound "audio/click2.mp3" 
 
         textbutton _("Back"):
             at main_menu_show_btn(0.4)
             action ShowMenu("main_menu")
+            activate_sound "audio/click2.mp3" 
 
-
-
-# Step 3. 创建音乐空间界面。
-screen music_room1:
-
-    tag menu
-
-    add gui.main_menu_background
-
-    frame:
-
-        xalign 0.5
-        yalign 0.5
-
-        has vbox
-
-        # 每条音轨的播放按钮。
-        textbutton "Theme2" action mr.Play("audio/BGM/Theme2.mp3")
-        textbutton "Cafe" action mr.Play("audio/BGM/Cafe.mp3")
-        textbutton "Love" action mr.Play("audio/BGM/Love.mp3")
-
-        null height 20
-
-        # 切换音轨按钮。
-        textbutton "Next" action mr.Next()
-        textbutton "Previous" action mr.Previous()
-
-        null height 20
-
-        # 用户退出音乐空间的按钮。
-        textbutton "Back" action ShowMenu("EXTRA")
-        textbutton "Main Menu" action ShowMenu("main_menu")
-
-        bar value Preference("music volume")
-
-    # 音乐空间的音乐播放入口。
-    on "replace" action mr.Play()
-
-    # 离开时恢复主菜单的音乐。
-    on "replaced" action Play("music", "audio/BGM/Theme2.mp3")
+#       screen music_room1:
+#       
+#           tag menu
+#       
+#           add gui.main_menu_background
+#       
+#           frame:
+#       
+#               xalign 0.5
+#               yalign 0.5
+#       
+#               has vbox
+#       
+#               # 每条音轨的播放按钮。
+#               textbutton "Theme2" action mr.Play("audio/BGM/Theme2.mp3")
+#               textbutton "Cafe" action mr.Play("audio/BGM/Cafe.mp3")
+#               textbutton "Love" action mr.Play("audio/BGM/Love.mp3")
+#       
+#               null height 20
+#       
+#               # 切换音轨按钮。
+#               textbutton "Next" action mr.Next()
+#               textbutton "Previous" action mr.Previous()
+#       
+#               null height 20
+#       
+#               # 用户退出音乐空间的按钮。
+#               textbutton "Back" action ShowMenu("EXTRA")
+#               textbutton "Main Menu" action ShowMenu("main_menu")
+#       
+#               bar value Preference("music volume")
+#       
+#           # 音乐空间的音乐播放入口。
+#           on "replace" action mr.Play()
+#       
+#           # 离开时恢复主菜单的音乐。
+#           on "replaced" action Play("music", "audio/BGM/Theme2.mp3")
 
 init python:
     my_room = ExtendedMusicRoom(channel='music', fadeout=2.0, fadein=1.0,

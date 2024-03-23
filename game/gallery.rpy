@@ -85,6 +85,7 @@ screen gallery():
         xalign 0.0
         yalign 0.5
         action Return()
+        activate_sound "audio/click2.mp3" 
 
     fixed:
         yfill True

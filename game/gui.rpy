@@ -56,13 +56,13 @@ define gui.interface_text_color = '#597FB3'
 ## 字体和字体大小 #####################################################################
 
 ## 游戏内文本使用的字体。
-define gui.text_font = "SourceHanSansLite.ttf"
+define gui.text_font = "fonts/SourceHanSansLite.ttf"
 
 ## 角色名称使用的字体。
-define gui.name_text_font = "SourceHanSansLite.ttf"
+define gui.name_text_font = "fonts/MaoKenZhuYuanTi-MaokenZhuyuanTi-2.ttf"
 
 ## 游戏外文本使用的字体。
-define gui.interface_text_font = "gui/FeiHuaSongTi.ttf"
+define gui.interface_text_font = "fonts/Taipei-Sans-TC-Beta-Regular-2.ttf"
 
 ## 普通对话文本的大小。
 define gui.text_size = 33
