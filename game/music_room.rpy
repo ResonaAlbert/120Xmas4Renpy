@@ -508,15 +508,15 @@ screen music_room2(mr):
                                 spacing 4
                                 ## Track info
                                 label song.name
-                                text song.artist
+                            #    text song.artist
             vbox:
                 yalign 0.0
                 if current_track:
-                    add current_track.art xalign 0.5 xsize 550 fit "contain"
+                #    add current_track.art xalign 0.5 xsize 550 fit "contain"
                     label current_track.name
-                    text current_track.artist
+                #    text current_track.artist
                 else:
-                    add mr.default_art xalign 0.5 xsize 550 fit "contain"
+                #    add mr.default_art xalign 0.5 xsize 550 fit "contain"
                     label _("No song playing")
 
         ## The music controls
@@ -634,6 +634,9 @@ style music_room2_label_text:
 style music_room2_text:
     color "#bfbfb9"
 
+
+
+#### main music room #######
 ################################################################################
 ## SCREENS - VERSION 3
 ################################################################################
@@ -658,7 +661,7 @@ screen music_room3(mr):
     ## Otherwise, if you're using my Easy Ren'Py GUI (https://feniksdev.itch.io/easy-renpy-gui)
     ## you can use this:
     ##
-    imagebutton auto "gui/music_room/backbar_%s.png":
+    imagebutton auto "gui/button/Back_Bar_%s.png":
         xalign 0.0
         yalign 0.5
         action Return()
@@ -668,7 +671,7 @@ screen music_room3(mr):
 #    use game_menu(_("Music"))
     fixed:
         yfill True
-        xsize config.screen_width-420
+        xsize config.screen_width-200
         align (1.0, 0.5)
     ##
     ############################################################################
@@ -698,7 +701,7 @@ screen music_room3(mr):
                                 ## The track number. +1 is because enumerate starts
                                 ## at 0 instead of 1.
                                 text str(num+1) align (0.5, 0.55)
-                        add song.art ysize 100 fit "contain"
+                    #    add song.art ysize 100 fit "contain"
                         vbox:
                             spacing 4
                             ## Track info
@@ -718,10 +721,10 @@ screen music_room3(mr):
             else:
                 add mr.default_art ysize 150 fit "contain"
             vbox:
-                xsize 250
+                xsize 150
                 if current_track:
                     text current_track.name
-                    text current_track.artist color "#112d6a"
+                #    text current_track.artist color "#112d6a"
                 else:
                     text _("No song playing")
 
@@ -730,7 +733,7 @@ screen music_room3(mr):
             vbox:
                 yalign 0.5 spacing 15
                 hbox:
-                    xalign 0.5 spacing 30
+                    xalign 0.5 spacing 40
                     ################## Shuffle button ##################
                     imagebutton:
                         idle "shuffle_button"
@@ -764,17 +767,17 @@ screen music_room3(mr):
                 hbox:
                     spacing 8
                     fixed:
-                        yfit True xsize 100
+                        yfit True xsize 200
                         add mr.get_pos(style="music_room_pos")
                     music_bar room mr
                     fixed:
-                        yfit True xsize 100
+                        yfit True xsize 200
                         add mr.get_duration(style="music_room_duration")
 
             add "gui/music_room/volume.webp" zoom 0.45 yalign 0.5:
                 matrixcolor ColorizeMatrix(MUSIC_ROOM_HOVER_COLOR, "#112d6a")
 
-            bar value MixerValue(mr.channel) xysize (150, 25):
+            bar value MixerValue(mr.channel) xysize (200, 25):
                 xalign 0.5 right_bar "#bed4ee" thumb None yalign 0.5
                 left_bar "#112d6a"
 

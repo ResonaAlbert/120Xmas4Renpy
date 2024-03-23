@@ -1,106 +1,93 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-Exception: Could not find font 'font/Taipei-Sans-TC-Beta-Regular-2.ttf'.
+While loading <renpy.display.im.Image object ('gui/button/music_btn_%s.png') at 0x1051d0df0>:
+OSError: Couldn't find file 'gui/button/music_btn_%s.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
     python hide:
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\ast.py", line 823, in execute
+  File "/Applications/renpy-8.2.1-sdk/renpy/ast.py", line 823, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\python.py", line 1178, in py_exec_bytecode
+  File "/Applications/renpy-8.2.1-sdk/renpy/python.py", line 1178, in py_exec_bytecode
     exec(bytecode, globals, locals)
   File "renpy/common/_layout/screen_main_menu.rpym", line 28, in <module>
     python hide:
   File "renpy/common/_layout/screen_main_menu.rpym", line 35, in _execute_python_hide
     ui.interact()
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\ui.py", line 301, in interact
+  File "/Applications/renpy-8.2.1-sdk/renpy/ui.py", line 301, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\core.py", line 2165, in interact
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/core.py", line 2165, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\core.py", line 2818, in interact_core
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/core.py", line 2818, in interact_core
     self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\core.py", line 1352, in draw_screen
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/core.py", line 1352, in draw_screen
     surftree = renpy.display.render.render_screen(
   File "render.pyx", line 486, in renpy.display.render.render_screen
   File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\layout.py", line 900, in render
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 900, in render
     surf = render(child, width, height, cst, cat)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\layout.py", line 900, in render
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 900, in render
     surf = render(child, width, height, cst, cat)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\layout.py", line 900, in render
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 900, in render
     surf = render(child, width, height, cst, cat)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\screen.py", line 754, in render
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/screen.py", line 754, in render
     child = renpy.display.render.render(self.child, w, h, st, at)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\layout.py", line 900, in render
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 900, in render
     surf = render(child, width, height, cst, cat)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\layout.py", line 1361, in render
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 900, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 260, in renpy.display.render.render
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 1361, in render
     surf = render(child,
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\layout.py", line 1076, in render
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 1076, in render
     surf = render(d, rw, height - y, cst, cat)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\layout.py", line 1361, in render
-    surf = render(child,
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 510, in render
+    renders = [ render(i, renwidth, renheight, st, at) for i in children ]
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 510, in <listcomp>
+    renders = [ render(i, renwidth, renheight, st, at) for i in children ]
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\layout.py", line 1874, in render
-    cwidth, cheight = sizeit('c', width, height, 0, 0)
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\layout.py", line 1871, in sizeit
-    rend = renpy.display.render.render_for_size(pos_d[pos], width, height, st, at)
-  File "render.pyx", line 312, in renpy.display.render.render_for_size
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\viewport.py", line 285, in render
-    surf = renpy.display.render.render(self.child, child_width, child_height, st, at)
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/behavior.py", line 968, in render
+    rv = super(Button, self).render(width, height, st, at)
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 1396, in render
+    back = render(style.background, bw, bh, st, at)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\layout.py", line 1121, in render
-    surf = render(d, width - x, rh, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/transform.py", line 957, in render
+    return RenderTransform(self).render(width, height, st, at)
+  File "accelerator.pyx", line 978, in renpy.display.accelerator.RenderTransform.render
+  File "accelerator.pyx", line 413, in renpy.display.accelerator.RenderTransform.render_child
   File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\layout.py", line 1121, in render
-    surf = render(d, width - x, rh, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\layout.py", line 1076, in render
-    surf = render(d, rw, height - y, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\layout.py", line 1121, in render
-    surf = render(d, width - x, rh, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\display\layout.py", line 1361, in render
-    surf = render(child,
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\text\text.py", line 2276, in render
-    virtual_layout = Layout(self, width, height, renders, drawable_res=False, size_only=True)
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\text\text.py", line 676, in __init__
-    glyphs = ts.glyphs(s, self)
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\text\text.py", line 268, in glyphs
-    fo = font.get_font(self.font, self.size, self.bold, self.italic, 0, self.antialias, self.vertical, self.hinting, layout.oversample, self.shaper, self.instance, self.axis)
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\text\font.py", line 745, in get_font
-    face = load_face(fn, shaper)
-  File "D:\Github HUB\renpy-8.2.1-sdk\renpy\text\font.py", line 673, in load_face
-    raise Exception("Could not find font {0!r}.".format(orig_fn))
-Exception: Could not find font 'font/Taipei-Sans-TC-Beta-Regular-2.ttf'.
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/im.py", line 626, in render
+    return cache.get(self, render=True)
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/im.py", line 309, in get
+    surf = image.load()
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/im.py", line 761, in load
+    raise e
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/im.py", line 711, in load
+    filelike = renpy.loader.load(self.filename, directory="images")
+  File "/Applications/renpy-8.2.1-sdk/renpy/loader.py", line 672, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file 'gui/button/music_btn_%s.png'.
 
-Windows-10-10.0.22621 AMD64
+macOS-10.16-x86_64-i386-64bit x86_64
 Ren'Py 8.2.1.24030407
 120Xmas 1.0
-Sat Mar 23 19:14:36 2024
+Sun Mar 24 00:07:35 2024

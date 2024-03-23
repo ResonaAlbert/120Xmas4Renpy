@@ -81,7 +81,7 @@ screen gallery():
     # add "gui/overlay/main_menu.png"
     # add "gallery_background_overlay"
 
-    imagebutton auto "gui/music_room/backbar_%s.png":
+    imagebutton auto "gui/button/Back_Bar_%s.png":
         xalign 0.0
         yalign 0.5
         action Return()

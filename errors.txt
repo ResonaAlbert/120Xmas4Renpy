@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/gallery.rpy", line 104: add expects a non-empty block.
-    add g.make_button(item.name, item.thumb, idle_border="gallery_idle_overlay", xalign=0.5, yalign=0.5):
-                                                                                                         ^
+File "game/music_room.rpy", line 682: hbox expects a non-empty block.
+    hbox:
+         ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sat Mar 23 17:57:03 2024
+Sun Mar 24 00:09:04 2024
