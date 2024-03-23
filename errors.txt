@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 306: the action keyword argument was not given a value.
-    action:
-          ^
+File "game/gallery.rpy", line 104: add expects a non-empty block.
+    add g.make_button(item.name, item.thumb, idle_border="gallery_idle_overlay", xalign=0.5, yalign=0.5):
+                                                                                                         ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Fri Mar 22 10:37:00 2024
+Sat Mar 23 17:57:03 2024

@@ -25,32 +25,32 @@ define config.check_conflicting_properties = True
 ## 界面中文本的颜色。
 
 ## 整个界面中使用的强调色，用于标记和突出显示文本。
-define gui.accent_color = '#29506fbe'
+define gui.accent_color = '#597FB3'
 
 ## 当文本按钮既未被选中也未被悬停时使用的颜色。
-define gui.idle_color = '#29506fbe'
+define gui.idle_color = '#597FB3'
 
 ## 小的颜色用于小的文本，需要更亮/更暗才能达到同样的效果。
 define gui.idle_small_color = '#112d6a'
 
 ## 当按钮和滑条被悬停时使用的颜色。
-define gui.hover_color = '#bed4ee'
+define gui.hover_color = '#FEE5B9'
 
 ## 当文本按钮被选中但非焦点时使用的颜色。当一个按钮为当前屏幕或设置选项值时，会
 ## 处于选中状态。
-define gui.selected_color = '#ffffff'
+define gui.selected_color = '#A1C7FA'
 
 ## 当文本按钮无法被选择时使用的颜色。
 define gui.insensitive_color = '#8888887f'
 
 ## 滑条未填充的部分使用的颜色。这些颜色不直接使用，但在重新生成条形图像文件时使
 ## 用。
-define gui.muted_color = '#003d51'
-define gui.hover_muted_color = '#005b7a'
+define gui.muted_color = '#597FB3'
+define gui.hover_muted_color = '#597FB3'
 
 ## 对话和菜单选择文本使用的颜色。
 define gui.text_color = '#ffffff'
-define gui.interface_text_color = '#29506fbe'
+define gui.interface_text_color = '#597FB3'
 
 
 ## 字体和字体大小 #####################################################################
@@ -219,8 +219,8 @@ define gui.slot_button_text_selected_idle_color = gui.selected_color
 define gui.slot_button_text_selected_hover_color = gui.hover_color
 
 ## 存档所用缩略图的宽度和高度。
-define config.thumbnail_width = 384
-define config.thumbnail_height = 216
+define config.thumbnail_width = 345.6 # 384
+define config.thumbnail_height = 194.4 # 216
 
 ## 存档网格中的列数和行数。
 define gui.file_slot_cols = 3

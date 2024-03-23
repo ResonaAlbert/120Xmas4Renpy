@@ -658,8 +658,13 @@ screen music_room3(mr):
     ## Otherwise, if you're using my Easy Ren'Py GUI (https://feniksdev.itch.io/easy-renpy-gui)
     ## you can use this:
     ##
-    add Image("gui/backbar.png") yalign 0.5
-    use game_menu(_("Music"))
+    imagebutton auto "gui/music_room/backbar_%s.png":
+        xalign 0.0
+        yalign 0.5
+        action Return()
+
+    # add Image("gui/backbar.png") yalign 0.5
+#    use game_menu(_("Music"))
     fixed:
         yfill True
         xsize config.screen_width-420

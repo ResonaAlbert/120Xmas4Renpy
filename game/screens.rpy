@@ -299,121 +299,51 @@ screen navigation():
             $ wait_btn_t0 = 0 
             $ wait_btn_t = 0.1
 
-            if main_menu:
-                # imagebutton auto "gui/Start_%s.png" action Start()# 开始游戏
-                textbutton _("START"):
-                    at main_menu_show_btn(wait_btn_t0)
-                    action Start()
-                    activate_sound "audio/click2.mp3" 
-                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
-            else:
 
-                textbutton _("HISTORY"): 
-                    at main_menu_show_btn(wait_btn_t0)
-                    action ShowMenu("history")
-                    activate_sound "audio/click2.mp3" 
-                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
+    # add gui.game_menu_background
 
-                textbutton _("SAVE"):
-                    at main_menu_show_btn(wait_btn_t0)
-                    action ShowMenu("save")
-                    activate_sound "audio/click2.mp3" 
-                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
+    vbox:
+        style_prefix "navigation"
 
-            textbutton _("LOAD") :
-                at main_menu_show_btn(wait_btn_t0)
-                action ShowMenu("load")
-                activate_sound "audio/click2.mp3" 
-            $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
-            
-            textbutton _("EXTRA") :
-                at main_menu_show_btn(wait_btn_t0)
-                action ShowMenu("EXTRA")
-                activate_sound "audio/click2.mp3" 
-            $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
+        xpos gui.navigation_xpos
+        yalign 0.5
+        #xalign 0.5
+        #yalign 1.0
+        #yoffset -100
 
-            textbutton _("CONFIG") :
-                at main_menu_show_btn(wait_btn_t0)
-                action ShowMenu("preferences")
-                activate_sound "audio/click2.mp3" 
-            $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
+        spacing gui.navigation_spacing
 
-            if _in_replay:
-                textbutton _("END PLAY"):
-                    at main_menu_show_btn(wait_btn_t0)
-                    action EndReplay(confirm=True)
-                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
+        if main_menu:
+            # imagebutton auto "gui/Start_%s.png" action Start()# 开始游戏
+            textbutton _("START") action Start()
 
-            elif not main_menu:
-                textbutton _("TITLE") action MainMenu()
+        else:
 
-            textbutton _("ABOUT") :
-                at main_menu_show_btn(wait_btn_t0)
-                action ShowMenu("about")
-            $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
+            textbutton _("HISTORY") action ShowMenu("history")
 
-            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+            textbutton _("SAVE") action ShowMenu("save")
 
-                ## “帮助”对移动设备来说并非必需或相关。
-                textbutton _("HELP") :
-                    at main_menu_show_btn(wait_btn_t0)
-                    action ShowMenu("help")
-                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
+        textbutton _("LOAD") action ShowMenu("load")
 
-            if renpy.variant("pc"):
-                
-                ## 退出按钮在 iOS 上是被禁止使用的，在安卓和网页上也不是必要的。
-                textbutton _("END") :
-                    at main_menu_show_btn(wait_btn_t0)
-                    action Quit(confirm=not main_menu)
-                $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
-    else:
-        # add gui.game_menu_background
+        textbutton _("CONFIG") action ShowMenu("preferences")
 
-        vbox:
-            style_prefix "navigation"
+        if _in_replay:
 
-            xpos gui.navigation_xpos
-            yalign 0.5
-            #xalign 0.5
-            #yalign 1.0
-            #yoffset -100
+            textbutton _("END PLY") action EndReplay(confirm=True)
 
-            spacing gui.navigation_spacing
+        elif not main_menu:
 
-            if main_menu:
-                # imagebutton auto "gui/Start_%s.png" action Start()# 开始游戏
-                textbutton _("START") action Start()
+            textbutton _("TITLE") action MainMenu()
 
-            else:
+#        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+#
+#            ## “帮助”对移动设备来说并非必需或相关。
+#            textbutton _("HELP") action ShowMenu("help")
 
-                textbutton _("HISTORY") action ShowMenu("history")
+        if renpy.variant("pc"):
 
-                textbutton _("SAVE") action ShowMenu("save")
-
-            textbutton _("LOAD") action ShowMenu("load")
-
-            textbutton _("CONFIG") action ShowMenu("preferences")
-
-            if _in_replay:
-
-                textbutton _("END PLY") action EndReplay(confirm=True)
-
-            elif not main_menu:
-
-                textbutton _("TITLE") action MainMenu()
-
-            textbutton _("ABOUT") action ShowMenu("about")
-
-            if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-
-                ## “帮助”对移动设备来说并非必需或相关。
-                textbutton _("HELP") action ShowMenu("help")
-
-            if renpy.variant("pc"):
-
-                ## 退出按钮在 iOS 上是被禁止使用的，在安卓和网页上也不是必要的。
-                textbutton _("END") action Quit(confirm=not main_menu)
+            ## 退出按钮在 iOS 上是被禁止使用的，在安卓和网页上也不是必要的。
+            textbutton _("END") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -442,6 +372,8 @@ init -1 python:
     def title_sound(trans, st, at):
         renpy.play("audio/title.wav", "sound")
 
+define GAMELOGO = "gui/Game_LOGO.png"
+
 transform GAMELOGO_POSITION:
     xalign 0.5
     zoom 0.6
@@ -455,10 +387,6 @@ transform GAMELOGO_POSITION:
     parallel:
         pause(2.0)
         function title_sound
-
-
-define GAMELOGO = "gui/Game_LOGO.png"
-
 
 init python:
 
@@ -506,8 +434,64 @@ screen main_menu():
     frame:
         style "main_menu_frame"
 
-    ## use 语句将其他的屏幕包含进此屏幕。标题屏幕的实际内容在导航屏幕中。
-    use navigation
+    hbox:
+        style_prefix "hnavigation"
+
+        #xpos gui.navigation_xpos
+        #yalign 0.5
+        xalign 0.5
+        yalign 1.0
+        yoffset 100
+
+        spacing gui.navigation_spacing
+
+        $ wait_btn_t0 = 0 
+        $ wait_btn_t = 0.1
+
+        textbutton _("START"):
+            at main_menu_show_btn(wait_btn_t0)
+            action Start()
+            activate_sound "audio/click2.mp3" 
+        $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
+
+        textbutton _("LOAD") :
+            at main_menu_show_btn(wait_btn_t0)
+            action ShowMenu("load")
+            activate_sound "audio/click2.mp3" 
+        $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
+        
+        textbutton _("EXTRA") :
+            at main_menu_show_btn(wait_btn_t0)
+            action ShowMenu("EXTRA")
+            activate_sound "audio/click2.mp3" 
+        $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
+
+        textbutton _("CONFIG") :
+            at main_menu_show_btn(wait_btn_t0)
+            action ShowMenu("preferences")
+            activate_sound "audio/click2.mp3" 
+        $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
+
+#        textbutton _("ABOUT") :
+#            at main_menu_show_btn(wait_btn_t0)
+#            action ShowMenu("about")
+#        $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
+
+#        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+#
+#            ## “帮助”对移动设备来说并非必需或相关。
+#            textbutton _("HELP") :
+#                at main_menu_show_btn(wait_btn_t0)
+#                action ShowMenu("help")
+#            $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
+
+        if renpy.variant("pc"):
+            
+            ## 退出按钮在 iOS 上是被禁止使用的，在安卓和网页上也不是必要的。
+            textbutton _("END") :
+                at main_menu_show_btn(wait_btn_t0)
+                action Quit(confirm=not main_menu)
+            $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
     if gui.show_name:
 
@@ -730,14 +714,14 @@ screen save():
 
     tag menu
 
-    use file_slots(_("保存"))
+    use file_slots(_("SAVE"))
 
 
 screen load():
 
     tag menu
 
-    use file_slots(_("读取游戏"))
+    use file_slots(_("LOAD"))
 
 
 screen file_slots(title):
@@ -765,6 +749,7 @@ screen file_slots(title):
                     value page_name_value
 
             ## 存档位网格。
+
             grid gui.file_slot_cols gui.file_slot_rows:
                 style_prefix "slot"
 
@@ -781,8 +766,10 @@ screen file_slots(title):
                         action FileAction(slot)
 
                         has vbox
+                        xalign 0.5
+                        yalign 0.5
 
-                        add FileScreenshot(slot) xalign 0.5
+                        add FileScreenshot(slot)
 
                         text FileTime(slot, format=_("{#file_time}%Y-%m-%d %H:%M"), empty=_("Empty")):
                             style "slot_time_text"
@@ -1033,7 +1020,7 @@ screen history():
     ## 避免预缓存此屏幕，因为它可能非常大。
     predict False
 
-    use game_menu(_("历史"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0, spacing=gui.history_spacing):
+    use game_menu(_("HISTORY"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0, spacing=gui.history_spacing):
 
         style_prefix "history"
 
@@ -1273,10 +1260,10 @@ init python:
     mr = MusicRoom(fadeout=1.0)
 
     # Step 2. 添加音乐文件。
-    mr.add("audio/title.mp3")
-    mr.add("audio/BGM/Theme2.mp3", always_unlocked=True)
-    mr.add("audio/BGM/Cafe.mp3")
-    mr.add("audio/BGM/Love.mp3")
+#    mr.add("audio/title.mp3")
+#    mr.add("audio/BGM/Theme2.mp3", always_unlocked=True)
+#    mr.add("audio/BGM/Cafe.mp3")
+#    mr.add("audio/BGM/Love.mp3")
 
 screen EXTRA():
 

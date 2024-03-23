@@ -6,9 +6,9 @@ init python:
     # path to CGs
     cg_path = "images/cg/" 
     # number of columns of thumbnails in the gallery grid
-    max_x = 3 
+    max_x = 4 
     # number of rows of thumbnails in the gallery grid
-    max_y = 3 
+    max_y = 4 
     # this will be the width of the thumbnails, height will be calculated automatically for 16:9 aspect ratio thumbnails
     # recommended sizes:
     # 290 for 1280x720 resolution
@@ -47,6 +47,13 @@ image gallery_background_overlay:
     "images/gallery_overlay/gallery_background_overlay.png"
     zoom gallery_resolution_scaling
 
+style gallery_frame:
+    #background "#e0f8ff"
+#    background  "gui/gallery_frame.png"
+    background Frame([ "gui/gallery_frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
+    yalign 0.0 xalign 0.0
+    padding (25, 25)
+
 screen gallery():
 
     python:
@@ -74,27 +81,42 @@ screen gallery():
     # add "gui/overlay/main_menu.png"
     # add "gallery_background_overlay"
 
-    hbox:
-        vbox:
-            style_prefix "navigation"
-            yalign 0.9
-            xsize gallery_navigation_width
-            xpos gui.navigation_xpos
-            spacing gui.navigation_spacing
+    imagebutton auto "gui/music_room/backbar_%s.png":
+        xalign 0.0
+        yalign 0.5
+        action Return()
 
-            textbutton "Previous":
-                if gallery_page > 0:
-                    action SetVariable("gallery_page", gallery_page - 1)
-            textbutton "Next":
-                if (gallery_page + 1) * max_page < len(gallery_items):
-                    action SetVariable("gallery_page", gallery_page + 1)
-            textbutton "Return" action Return()
+    fixed:
+        yfill True
+        xsize config.screen_width-250
+        ysize config.screen_height-50
+        align (1.0, 0.5)
 
-        grid max_x max_y:
-            xfill True
-            yfill True
-            for i in range(start, end + 1):
-                $ item = gallery_items[i]
-                add g.make_button(item.name, item.thumb, idle_border="gallery_idle_overlay", xalign=0.5, yalign=0.5)
-            for i in range(end - start + 1, max_page):
-                null
+        frame:
+            style_prefix 'gallery_frame'
+            #xsize 750 left_margin 25 top_margin 25
+            hbox:
+                grid max_x max_y:
+                    xfill True
+                    yfill True
+                    for i in range(start, end + 1):
+                        $ item = gallery_items[i]
+                        add g.make_button(item.name, item.thumb, idle_border="gallery_idle_overlay", xalign=0.5, yalign=0.5)
+                    for i in range(end - start + 1, max_page):
+                        null
+
+            hbox:
+                style_prefix "hnavigation"
+                xalign 0.5
+                yalign 0.95
+                xsize gallery_navigation_width
+            #    xpos gui.navigation_xpos
+                spacing gui.navigation_spacing
+
+                textbutton "Previous":
+                    if gallery_page > 0:
+                        action SetVariable("gallery_page", gallery_page - 1)
+                textbutton "Next":
+                    if (gallery_page + 1) * max_page < len(gallery_items):
+                        action SetVariable("gallery_page", gallery_page + 1)
+                #textbutton "Return" action Return()
