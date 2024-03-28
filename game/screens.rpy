@@ -320,24 +320,6 @@ transform main_menu_show_btn(wait = 0):
 
 screen navigation():
 
-    if renpy.get_screen("main_menu"):
-        hbox:
-            style_prefix "hnavigation"
-
-            #xpos gui.navigation_xpos
-            #yalign 0.5
-            xalign 0.5
-            yalign 1.0
-            yoffset 100
-
-            spacing gui.navigation_spacing
-
-            $ wait_btn_t0 = 0 
-            $ wait_btn_t = 0.1
-
-
-    # add gui.game_menu_background
-
     vbox:
         style_prefix "navigation"
 
@@ -386,6 +368,7 @@ style navigation_button is gui_button
 style navigation_button_text is gui_button_text
 style hnavigation_button is navigation_button
 style hnavigation_button_text is navigation_button_text
+
 
 style navigation_button:
     size_group "navigation"
@@ -1425,7 +1408,7 @@ init python:
         unlock_condition="True",
     )
     my_room.add(
-        name=_("Bar Piano he Nutcracker he Nutcracker he Nutcracker he Nutcracker"),
+        name=_("Bar Piano r"),
         path="audio/BGM/Bar Piano.mp3",
         artist="Guke",
     #    art="gui/music_room/nutcracker_ost.png",

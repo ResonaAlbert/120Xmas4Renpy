@@ -1,7 +1,7 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.Image object ('gui/button/music_btn_%s.png') at 0x1051d0df0>:
-OSError: Couldn't find file 'gui/button/music_btn_%s.png'.
+While loading <renpy.display.im.Image object ('gui/music_room/music_btn.png') at 0x10e613eb0>:
+OSError: Couldn't find file 'gui/music_room/music_btn.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -28,6 +28,10 @@ Full traceback:
   File "render.pyx", line 260, in renpy.display.render.render
   File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 900, in render
     surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 260, in renpy.display.render.render
+  File "/Applications/renpy-8.2.1-sdk/renpy/display/transition.py", line 384, in render
+    top = render(self.new_widget, width, height, st, at)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 260, in renpy.display.render.render
   File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 900, in render
@@ -70,11 +74,6 @@ Full traceback:
     back = render(style.background, bw, bh, st, at)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 260, in renpy.display.render.render
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/transform.py", line 957, in render
-    return RenderTransform(self).render(width, height, st, at)
-  File "accelerator.pyx", line 978, in renpy.display.accelerator.RenderTransform.render
-  File "accelerator.pyx", line 413, in renpy.display.accelerator.RenderTransform.render_child
-  File "render.pyx", line 260, in renpy.display.render.render
   File "/Applications/renpy-8.2.1-sdk/renpy/display/im.py", line 626, in render
     return cache.get(self, render=True)
   File "/Applications/renpy-8.2.1-sdk/renpy/display/im.py", line 309, in get
@@ -85,9 +84,9 @@ Full traceback:
     filelike = renpy.loader.load(self.filename, directory="images")
   File "/Applications/renpy-8.2.1-sdk/renpy/loader.py", line 672, in load
     raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'gui/button/music_btn_%s.png'.
+OSError: Couldn't find file 'gui/music_room/music_btn.png'.
 
 macOS-10.16-x86_64-i386-64bit x86_64
 Ren'Py 8.2.1.24030407
 120Xmas 1.0
-Sun Mar 24 00:07:35 2024
+Thu Mar 28 22:24:05 2024
