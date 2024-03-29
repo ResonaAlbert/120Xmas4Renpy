@@ -92,11 +92,15 @@ style frame:
 ##
 ## https://www.renpy.cn/doc/screen_special.html#say
 
+define persistent.windowalpha=0.5 #0.5是设置的初始值，改成1.0也可
+
 screen say(who, what):
     style_prefix "say"
 
     window:
         id "window"
+
+        background Transform(Image("gui/textbox.png",xalign=0.5, yalign=1.0), alpha=persistent.windowalpha) #加这句
 
         if who is not None:
 
@@ -334,24 +338,31 @@ screen navigation():
         if main_menu:
             # imagebutton auto "gui/Start_%s.png" action Start()# 开始游戏
             textbutton _("START") action Start()
+            null height 5
 
         else:
 
             textbutton _("HISTORY") action ShowMenu("history")
+            null height 5
 
             textbutton _("SAVE") action ShowMenu("save")
+            null height 5
 
         textbutton _("LOAD") action ShowMenu("load")
+        null height 5
 
         textbutton _("CONFIG") action ShowMenu("preferences")
+        null height 5
 
         if _in_replay:
 
             textbutton _("END PLY") action EndReplay(confirm=True)
+            null height 5
 
         elif not main_menu:
 
             textbutton _("TITLE") action MainMenu()
+            null height 5
 
 #        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 #
@@ -900,25 +911,33 @@ screen preferences():
                     vbox:
                         style_prefix "radio"
                         label _("Display")
+                        null height 10
                         textbutton _("Windows"): 
                             action Preference("display", "window")
                             activate_sound "audio/click2.mp3" 
+                        null height 10
                         textbutton _("Full"):
                             action Preference("display", "fullscreen")
                             activate_sound "audio/click2.mp3" 
+                        null height 0
 
                 vbox:
                     style_prefix "check"
                     label _("Skip")
+                    null height 10
                     textbutton _("未读文本"):
                         action Preference("skip", "toggle")
                         activate_sound "audio/click2.mp3" 
+                    null height 10
                     textbutton _("选项后继续"):
                         action Preference("after choices", "toggle")
                         activate_sound "audio/click2.mp3" 
+                    null height 10
                     textbutton _("忽略转场"):
                         action InvertSelected(Preference("transitions", "toggle"))
                         activate_sound "audio/click2.mp3" 
+                    null height 0
+
 
                 ## 可在此处添加 radio_pref 或 check_pref 类型的额外 vbox，以添加
                 ## 额外的创建者定义的偏好设置。
@@ -932,40 +951,56 @@ screen preferences():
                 vbox:
 
                     label _("文字速度")
+                    null height 10
 
                     bar value Preference("text speed")
+                    null height 10
 
                     label _("自动前进时间")
+                    null height 10
 
                     bar value Preference("auto-forward time")
+                    null height 10
+
+                    label _("对话框透明度")
+                    null height 10
+
+                    bar value FieldValue(persistent,"windowalpha",range=1.0,style="slider") 
+                    null height 10
 
                 vbox:
 
                     if config.has_music:
                         label _("音乐音量")
+                        null height 10
 
                         hbox:
                             bar value Preference("music volume")
+                        null height 10
 
                     if config.has_sound:
 
                         label _("音效音量")
+                        null height 10
 
                         hbox:
                             bar value Preference("sound volume")
 
                             if config.sample_sound:
                                 textbutton _("测试") action Play("sound", config.sample_sound)
+                        null height 10
 
 
                     if config.has_voice:
                         label _("语音音量")
+                        null height 10
 
                         hbox:
                             bar value Preference("voice volume")
 
                             if config.sample_voice:
                                 textbutton _("测试") action Play("voice", config.sample_voice)
+                        null height 10
 
                     if config.has_music or config.has_sound or config.has_voice:
                         null height gui.pref_spacing
@@ -973,6 +1008,7 @@ screen preferences():
                         textbutton _("全部静音"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
+                        null height 10
 
 
 style pref_label is gui_label
@@ -1032,7 +1068,9 @@ style check_button_text:
     properties gui.text_properties("check_button")
 
 style slider_slider:
+    yalign 0.5
     xsize 525
+
 
 style slider_button:
     properties gui.button_properties("slider_button")

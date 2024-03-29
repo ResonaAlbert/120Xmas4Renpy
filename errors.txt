@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/music_room.rpy", line 230: 'x' is not a keyword argument or valid child of the hbox statement.
-    x offset 50
-     ^
+File "game/screens.rpy", line 917: the height keyword argument was not given a value.
+    null height 
+                ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Thu Mar 28 23:06:22 2024
+Fri Mar 29 20:17:32 2024
