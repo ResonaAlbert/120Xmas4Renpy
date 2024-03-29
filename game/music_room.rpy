@@ -84,9 +84,9 @@ define myconfig.UNLOCK_TRACKS_FOR_DEVELOPMENT = True
 ## to colorize the default music controls. You can change these if you want to
 ## use the provided images, or simply supply your own and remove the lines
 ## `at colorize_button` from the screen below.
-define MUSIC_ROOM_IDLE_COLOR = '#ffffff'
-define MUSIC_ROOM_HOVER_COLOR = "#597FB3"
-define MUSIC_ROOM_SELECTED_IDLE_COLOR = '#ffffff'
+define MUSIC_ROOM_IDLE_COLOR = "#597FB3"
+define MUSIC_ROOM_HOVER_COLOR = '#FEE5B9'
+define MUSIC_ROOM_SELECTED_IDLE_COLOR = "#597FB3"
 define MUSIC_ROOM_SELECTED_HOVER_COLOR = "#597FB3"
 define MUSIC_ROOM_INSENSITIVE_COLOR = "#888"
 
@@ -161,9 +161,9 @@ transform zoom_button(z):
     zoom z
 
 style music_room_pos:
-    color "#fff" xalign 0.5 adjust_spacing False
+    color "#597FB3" xalign 0.5 adjust_spacing False
 style music_room_duration:
-    color "#fff" xalign 0.5 adjust_spacing False
+    color "#597FB3" xalign 0.5 adjust_spacing False
 
 ################################################################################
 ## Styles for the track list, shared generally by the other rooms.
@@ -182,6 +182,7 @@ style track_list_button:
 
 style track_list_button_text:
     xalign 0.5
+    size 30
     color "#597FB3" hover_color '#ffffff' selected_color "#597FB3" 
     insensitive_color "#666"
 
@@ -248,18 +249,17 @@ screen music_room3(mr):
             has hbox
             xalign 0.5 yalign 0.5
             if current_track:
-                add current_track.art ysize 150 fit "contain"
+                add current_track.art ysize 130 fit "contain"
             else:
-                add mr.default_art ysize 150 fit "contain"
+                add mr.default_art ysize 130 fit "contain"
             vbox:
-                xsize 150
+                xsize 250
                 if current_track:
                     text current_track.name
-                #    text current_track.artist color "#112d6a"
                 else:
                     text _("No song playing")
 
-            null width 10
+            null width 0
 
             vbox:
                 yalign 0.5 spacing 15
@@ -309,14 +309,16 @@ screen music_room3(mr):
                 matrixcolor ColorizeMatrix(MUSIC_ROOM_HOVER_COLOR, "#112d6a")
 
             bar value MixerValue(mr.channel) xysize (200, 25):
-                xalign 0.5 right_bar '#ffffff' thumb None yalign 0.5
+                xalign 0.5 right_bar "#ffffff" thumb None yalign 0.5
                 left_bar "#597FB3"
 
 style musicroom3_frame:
     yalign 1.0 xalign 0.5 
-    xoffset 20 yoffset 20
-    xfill True 
-    ysize 300
+    #xoffset 20 
+    #yoffset 20
+    #xfill True 
+    xsize 1700
+    ysize 220
     background Frame(["gui/music_room/music_room_play_frame.png"])
 
 style musicroom3_hbox:
@@ -324,11 +326,11 @@ style musicroom3_hbox:
 style musicroom3_image_button:
     yalign 0.5
 style musicroom3_bar:
-    ysize 25 xsize 480
+    ysize 25 xsize 400
     yalign 0.5
     right_bar '#ffffff' thumb None
     left_bar "#597FB3"
 style musicroom3_text:
-    yalign 0.5 size 35 color '#ffffff'
+    yalign 0.5 size 30 color "#597FB3"
 style musicroom3_vbox:
     yalign 0.5
