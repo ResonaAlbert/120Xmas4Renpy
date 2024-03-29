@@ -1830,8 +1830,8 @@ style pref_vbox:
 ## 由于可能没有鼠标，我们将快捷菜单替换为一个使用更少、更大按钮的版本，这样更容
 ## 易触摸。
 screen quick_menu():
-    variant "touch"
 
+    ## 确保该菜单出现在其他屏幕之上，
     zorder 100
 
     if quick_menu:
@@ -1842,10 +1842,51 @@ screen quick_menu():
             xalign 0.5
             yalign 1.0
 
-            textbutton _("回退") action Rollback()
-            textbutton _("快进") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("自动") action Preference("auto-forward", "toggle")
-            textbutton _("菜单") action ShowMenu()
+        #    textbutton _("回退") action Rollback()
+        #    textbutton _("历史") action ShowMenu('history')
+        #    textbutton _("快进") action Skip() alternate Skip(fast=True, confirm=True)
+        #    textbutton _("自动") action Preference("auto-forward", "toggle")
+        #    textbutton _("保存") action ShowMenu('save')
+        #    textbutton _("快存") action QuickSave()
+        #    textbutton _("快读") action QuickLoad()
+        #    textbutton _("设置") action ShowMenu('preferences')
+
+            imagebutton auto ("gui/button/back_%s.png"):
+                at zoom_button(0.8)
+                action Rollback()
+                activate_sound "audio/click2.mp3" 
+            imagebutton auto ("gui/button/log_%s.png"):
+                at zoom_button(0.8)
+                action ShowMenu('history')
+                activate_sound "audio/click2.mp3"             
+            imagebutton auto ("gui/button/skip_%s.png"):
+                at zoom_button(0.8)
+                action Skip() alternate Skip(fast=True, confirm=True)
+                activate_sound "audio/click2.mp3"    
+            imagebutton auto ("gui/button/auto_%s.png"):
+                at zoom_button(0.8)
+                action Preference("auto-forward", "toggle")
+                activate_sound "audio/click2.mp3"    
+            imagebutton auto ("gui/button/save_%s.png"):
+                at zoom_button(0.8)
+                action ShowMenu('save')
+                activate_sound "audio/click2.mp3"    
+            imagebutton auto ("gui/button/load_%s.png"):
+                at zoom_button(0.8)
+                action ShowMenu('load')
+                activate_sound "audio/click2.mp3"    
+            imagebutton auto ("gui/button/quicksave_%s.png"):
+                at zoom_button(0.8)
+                action QuickSave()
+                activate_sound "audio/click2.mp3"    
+            imagebutton auto ("gui/button/quickload_%s.png"):
+                at zoom_button(0.8)
+                action QuickLoad()
+                activate_sound "audio/click2.mp3"    
+            imagebutton auto ("gui/button/setting_%s.png"):
+                at zoom_button(0.8)
+                action ShowMenu('preferences')
+                activate_sound "audio/click2.mp3"   
 
 
 style window:
