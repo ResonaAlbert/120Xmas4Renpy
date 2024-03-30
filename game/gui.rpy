@@ -270,7 +270,7 @@ define gui.main_menu_text_xalign = 1.0
 define gui.frame_borders = Borders(6, 6, 6, 6)
 
 ## 用作确认界面部分的框架。
-define gui.confirm_frame_borders = Borders(60, 60, 60, 60)
+define gui.confirm_frame_borders = Borders(100, 100, 100, 100)
 
 ## 用作快进界面部分的框架。
 define gui.skip_frame_borders = Borders(24, 8, 75, 8)

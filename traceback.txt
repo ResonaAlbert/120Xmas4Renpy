@@ -1,100 +1,42 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.Image object ('gui/ui_dialogue/ui_dialogue_box.png') at 0x105112df0>:
-  File "game/script.rpy", line 48, in script
-    e "您已创建一个新的 Ren'Py 游戏。"
-  File "game/script.rpy", line 48, in script
-    e "您已创建一个新的 Ren'Py 游戏。"
-  File "renpy/common/000window.rpy", line 122, in _window_auto_callback
-    _window_show(auto=True)
-  File "renpy/common/000window.rpy", line 70, in _window_show
-    renpy.with_statement(trans)
-OSError: Couldn't find file 'gui/ui_dialogue/ui_dialogue_box.png'.
+While running game code:
+  File "renpy/common/00start.rpy", line 216, in script call
+    call _load_reload_game from _call__load_reload_game_1
+  File "renpy/common/00keymap.rpy", line 531, in script
+    python hide:
+  File "renpy/common/00keymap.rpy", line 531, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 542, in _execute_python_hide
+    renpy.load(renpy.session["_reload_slot"])
+Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "/Applications/renpy-8.2.1-sdk/renpy/bootstrap.py", line 359, in bootstrap
-    renpy.main.main()
-  File "/Applications/renpy-8.2.1-sdk/renpy/main.py", line 635, in main
-    run(restart)
-  File "/Applications/renpy-8.2.1-sdk/renpy/main.py", line 145, in run
-    renpy.execution.run_context(True)
-  File "/Applications/renpy-8.2.1-sdk/renpy/execution.py", line 955, in run_context
-    context.run()
-  File "game/script.rpy", line 48, in script
-    e "您已创建一个新的 Ren'Py 游戏。"
-  File "lib/python3.9/future/utils/__init__.py", line 444, in raise_
-  File "game/script.rpy", line 48, in script
-    e "您已创建一个新的 Ren'Py 游戏。"
-  File "/Applications/renpy-8.2.1-sdk/renpy/ast.py", line 2557, in execute
-    Say.execute(self)
-  File "/Applications/renpy-8.2.1-sdk/renpy/ast.py", line 583, in execute
-    statement_name(stmt_name)
-  File "/Applications/renpy-8.2.1-sdk/renpy/ast.py", line 52, in statement_name
-    i(name)
-  File "renpy/common/000window.rpy", line 122, in _window_auto_callback
-    _window_show(auto=True)
-  File "renpy/common/000window.rpy", line 70, in _window_show
-    renpy.with_statement(trans)
-  File "/Applications/renpy-8.2.1-sdk/renpy/exports.py", line 1781, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/core.py", line 1548, in do_with
-    return self.interact(trans_pause=True,
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/core.py", line 2165, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/core.py", line 2818, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/core.py", line 1352, in draw_screen
-    surftree = renpy.display.render.render_screen(
-  File "render.pyx", line 486, in renpy.display.render.render_screen
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/transition.py", line 384, in render
-    top = render(self.new_widget, width, height, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/screen.py", line 754, in render
-    child = renpy.display.render.render(self.child, w, h, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 900, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/layout.py", line 1396, in render
-    back = render(style.background, bw, bh, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/transform.py", line 957, in render
-    return RenderTransform(self).render(width, height, st, at)
-  File "accelerator.pyx", line 978, in renpy.display.accelerator.RenderTransform.render
-  File "accelerator.pyx", line 413, in renpy.display.accelerator.RenderTransform.render_child
-  File "render.pyx", line 260, in renpy.display.render.render
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/im.py", line 626, in render
-    return cache.get(self, render=True)
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/im.py", line 309, in get
-    surf = image.load()
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/im.py", line 761, in load
-    raise e
-  File "/Applications/renpy-8.2.1-sdk/renpy/display/im.py", line 711, in load
-    filelike = renpy.loader.load(self.filename, directory="images")
-  File "/Applications/renpy-8.2.1-sdk/renpy/loader.py", line 672, in load
-    raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'gui/ui_dialogue/ui_dialogue_box.png'.
+  File "renpy/common/00start.rpy", line 216, in script call
+    call _load_reload_game from _call__load_reload_game_1
+  File "renpy/common/00keymap.rpy", line 531, in script
+    python hide:
+  File "/Applications/renpy-8.2.1-sdk/renpy/ast.py", line 823, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/Applications/renpy-8.2.1-sdk/renpy/python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/00keymap.rpy", line 531, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 542, in _execute_python_hide
+    renpy.load(renpy.session["_reload_slot"])
+  File "/Applications/renpy-8.2.1-sdk/renpy/loadsave.py", line 829, in load
+    log.unfreeze(roots, label="_after_load")
+  File "/Applications/renpy-8.2.1-sdk/renpy/rollback.py", line 1130, in unfreeze
+    self.rollback(0, force=True, label=label, greedy=greedy, on_load=True)
+  File "/Applications/renpy-8.2.1-sdk/renpy/rollback.py", line 925, in rollback
+    self.load_failed()
+  File "/Applications/renpy-8.2.1-sdk/renpy/rollback.py", line 843, in load_failed
+    raise Exception("Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?")
+Exception: Couldn't find a place to stop rolling back. Perhaps the script changed in an incompatible way?
 
 macOS-10.16-x86_64-i386-64bit x86_64
 Ren'Py 8.2.1.24030407
 120Xmas 1.0
-Fri Mar 29 20:07:26 2024
+Sat Mar 30 22:44:15 2024

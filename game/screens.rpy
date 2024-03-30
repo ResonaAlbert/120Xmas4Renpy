@@ -477,29 +477,36 @@ screen main_menu():
 
         $ wait_btn_t0 = 0 
         $ wait_btn_t = 0.1
-
-        textbutton _("START"):
+        imagebutton auto ("gui/Main_Menu/START_%s.png"):
+        # textbutton _("START"):
             at main_menu_show_btn(wait_btn_t0)
             action Start()
             activate_sound "audio/click2.mp3" 
+        null width 60
         $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
-        textbutton _("LOAD") :
+        imagebutton auto ("gui/Main_Menu/LOAD_%s.png"):
+        # textbutton _("LOAD") :
             at main_menu_show_btn(wait_btn_t0)
             action ShowMenu("load")
             activate_sound "audio/click2.mp3" 
-        $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
-        
-        textbutton _("EXTRA") :
-            at main_menu_show_btn(wait_btn_t0)
-            action ShowMenu("EXTRA")
-            activate_sound "audio/click2.mp3" 
+        null width 60
         $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
-        textbutton _("CONFIG") :
+        imagebutton auto ("gui/Main_Menu/CONFIG_%s.png"):
+#        textbutton _("CONFIG") :
             at main_menu_show_btn(wait_btn_t0)
             action ShowMenu("preferences")
             activate_sound "audio/click2.mp3" 
+        null width 60
+        $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
+        
+        imagebutton auto ("gui/Main_Menu/EXTRA_%s.png"):
+        # textbutton _("EXTRA") :
+            at main_menu_show_btn(wait_btn_t0)
+            action ShowMenu("EXTRA")
+            activate_sound "audio/click2.mp3" 
+        null width 60
         $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
 #        textbutton _("ABOUT") :
@@ -518,10 +525,12 @@ screen main_menu():
         if renpy.variant("pc"):
             
             ## 退出按钮在 iOS 上是被禁止使用的，在安卓和网页上也不是必要的。
-            textbutton _("END") :
+            imagebutton auto ("gui/Main_Menu/END_%s.png"):
+            # textbutton _("END") :
                 at main_menu_show_btn(wait_btn_t0)
                 action Quit(confirm=not main_menu)
                 activate_sound "audio/click2.mp3" 
+            null width 60
             $ wait_btn_t0 = wait_btn_t0 + wait_btn_t
 
     if gui.show_name:
@@ -1360,18 +1369,24 @@ screen EXTRA():
         yoffset 100
 
         spacing gui.navigation_spacing
-
-        textbutton _("Gallery"):
+        imagebutton auto ("gui/Main_Menu/GALLERY_%s.png"):
+        # textbutton _("Gallery"):
             at main_menu_show_btn()
             action ShowMenu("gallery")
             activate_sound "audio/click2.mp3" 
         
-        textbutton _("Music"):
+        null width 40
+
+        imagebutton auto ("gui/Main_Menu/MUSIC_%s.png"):
+        # textbutton _("Music"):
             at main_menu_show_btn(0.2)
             action ShowMenu("music_room3", mr=my_room)
             activate_sound "audio/click2.mp3" 
-
-        textbutton _("Back"):
+ 
+        null width 40
+        
+        imagebutton auto ("gui/Main_Menu/BACK_%s.png"):
+        # textbutton _("Back"):
             at main_menu_show_btn(0.4)
             action ShowMenu("main_menu")
             activate_sound "audio/click2.mp3" 

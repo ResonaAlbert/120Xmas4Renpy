@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 917: the height keyword argument was not given a value.
-    null height 
+File "game/screens.rpy", line 480: expected a keyword argument, colon, or end of line.
+    imagebutton ("gui/Main_Menu/START_%s"):
                 ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Fri Mar 29 20:17:32 2024
+Sat Mar 30 22:41:55 2024
